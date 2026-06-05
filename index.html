@@ -528,6 +528,77 @@
       border-color: var(--white);
     }
 
+    /* ── CONTACT FORM ── */
+    .contact-form {
+      margin-top: 48px;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      transition: border-color 0.15s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+    }
+
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 28px 24px;
@@ -725,11 +796,27 @@
     <div class="container">
       <div class="section-label">Get Started</div>
       <h2 class="section-title">Thirty minutes is all it takes to know if this is right for you.</h2>
-      <p class="book-sub">Book a no-obligation call with Mark. We'll talk through your business, where you're stuck, and whether AI Ignite is the right fit.</p>
+      <p class="book-sub">Book a call with Mark, or send a message and he'll get back to you directly.</p>
       <div class="book-actions">
         <a href="https://calendly.com/calabro-markj/30min" class="btn" target="_blank" rel="noopener">Book a Call</a>
-        <a href="https://mail.google.com/mail/?view=cm&to=calabro.markj@gmail.com" class="btn btn-outline" target="_blank" rel="noopener">Send an Email</a>
       </div>
+      <form class="contact-form" action="https://formspree.io/f/xgobvnqe" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@business.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us a bit about your business and what you're hoping to achieve with AI…" required></textarea>
+        </div>
+        <button type="submit" class="btn form-submit">Send Message</button>
+      </form>
       <p class="book-email">Or reach Mark directly at <a href="mailto:calabro.markj@gmail.com">calabro.markj@gmail.com</a></p>
     </div>
   </section>
