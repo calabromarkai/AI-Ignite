@@ -800,7 +800,11 @@
       <div class="book-actions">
         <a href="https://calendly.com/calabro-markj/30min" class="btn" target="_blank" rel="noopener">Book a Call</a>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/xgobvnqe" method="POST">
+      <div class="form-success" id="form-success">
+        <p style="font-size:18px; color: var(--white); margin-bottom: 8px;">Message sent — thank you.</p>
+        <p>Mark will be in touch shortly.</p>
+      </div>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgobvnqe" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your Name</label>
@@ -826,5 +830,24 @@
     <p>&copy; 2026 AI Ignite. All rights reserved.</p>
   </footer>
 
+  <script>
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
