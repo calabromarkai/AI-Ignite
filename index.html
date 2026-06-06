@@ -528,6 +528,77 @@
       border-color: var(--white);
     }
 
+    /* ── FAQ ── */
+    .faq {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      padding: 22px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      line-height: 1.4;
+    }
+
+    .faq-question:hover {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--accent);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--accent);
+    }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: 22px;
+      font-size: 15.5px;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.75;
+      max-width: 760px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
     /* ── CONTACT FORM ── */
     .contact-form {
       margin-top: 48px;
@@ -794,12 +865,74 @@
     </div>
   </section>
 
+  <!-- ── FAQ ── -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question">How does the process start? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">It starts with a short call to make sure we're the right fit for each other. I only work with businesses where I genuinely believe AI Ignite will make a difference — and where the timing is right. If it's not a fit, I'll say so and point you in the right direction. If it is, we get started with a 50% deposit to lock in your dates.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What happens before Day One? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">Once you're confirmed, we schedule a one-hour Discovery call — you, me, and anyone from your team who wants to join. We map your current tech setup, talk through what you're hoping to get out of the process, and lock in the focus for Day One. I'll also ask you to set up paid accounts on both ChatGPT and Claude before the day — so we hit the ground running with no delays.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What exactly happens on Day One? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">I spend a full day inside your business. We start by getting you and up to three of your team hands-on with both ChatGPT and Claude — not through a lecture, but by actually using them together on real tasks relevant to your business. We research your competitors, scan what's coming in your industry, and work through a couple of other exercises that immediately show what AI can do. By the end of the day we've identified your single biggest AI opportunity and your team has already had their hands on the tools.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Who should be in the room on Day One? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">You, as the business owner, and up to three people from your team — ideally the ones closest to the problem we're solving. No technical knowledge required. The less comfortable you are with technology, the more valuable the day tends to be.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What do we walk away with at the end of Day One? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">Three things. Your team is hands-on with AI and knows how to use it. You have a clear picture of where AI can make the biggest difference in your business right now. And you have a defined brief for Day Two — what gets built, what success looks like, and what's in scope. Each day also includes a follow-up window where I'm available by phone or message to answer questions as they come up. I want you to feel supported, not stranded.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">How does Day Two get scoped? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">Based entirely on what comes out of Day One. We don't decide what to build until we've spent a day inside the business. Before Day Two begins you'll have a clear scope document so there are no surprises on either side.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What happens after Day Two — are we on our own? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">You'll have a working solution and the knowledge to keep building from it. The goal is that you leave self-sufficient, not dependent. And as with Day One, there's a follow-up window where I'm available by phone or message after the day. Many businesses choose to continue with further projects once they've seen what's possible.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What kinds of businesses is this right for? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">SME business owners with roughly 5 to 50 staff who are ready to move but don't know where to start. Construction, hospitality, professional services, retail and more. If you're time-poor, have been watching others get ahead with AI, and want a practical outcome not a strategy deck — this is built for you.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What is this not? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">It's not a training course, a software subscription, or a lengthy consulting engagement. It's not right if you're looking for someone to manage AI for you ongoing, or if you want a full digital transformation program. This is a fast, focused, practical start.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">What's the investment? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">Day One is $5,000 and requires a 50% deposit to confirm your booking. Day Two is $7,000, scoped and agreed before we begin. The most common path is to start with Day One and move to Day Two once we've identified a very high value project in the business we can solve for in a day.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── BOOK ── -->
   <section class="book" id="book">
     <div class="container">
       <div class="section-label">Get Started</div>
       <h2 class="section-title">Thirty minutes is all it takes to know if this is right for you.</h2>
       <p class="book-sub">Book a call with Mark, or send a message and he'll get back to you directly.</p>
+      <p style="font-size: 15px; color: rgba(255,255,255,0.45); margin-bottom: 24px;">Every engagement starts with a short call to make sure it's the right fit — for both of us.</p>
       <div class="book-actions">
         <a href="https://calendly.com/calabro-markj/30min" class="btn" target="_blank" rel="noopener">Book a Call</a>
       </div>
@@ -833,6 +966,17 @@
     <p>&copy; 2026 AI Ignite. All rights reserved.</p>
   </footer>
 
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
   <script>
     const form = document.getElementById('contact-form');
     const success = document.getElementById('form-success');
