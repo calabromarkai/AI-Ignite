@@ -227,64 +227,94 @@
       background: var(--dark);
     }
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
+    .steps-wrapper {
       margin-top: 56px;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .step-card {
+    /* Audit spans full width */
+    .step-card-audit {
       background: var(--dark-2);
       border: 1px solid var(--border);
+      border-radius: 6px 6px 0 0;
+      border-bottom: none;
+      padding: 36px 40px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .step-card-audit::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 6px 6px 0 0;
+    }
+
+    .step-audit-text {}
+
+    .step-audit-price {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Down arrow between audit and the two day cards */
+    .step-arrow-down {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      background: var(--dark-2);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    /* Day One + Day Two side by side */
+    .steps-days {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .step-card-day {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-top: none;
       border-right: none;
       padding: 36px 32px;
       position: relative;
     }
 
-    .step-card:last-child {
+    .step-card-day:last-child {
       border-right: 1px solid var(--border);
+      border-radius: 0 0 6px 0;
     }
 
-    .step-card::before {
+    .step-card-day:first-child {
+      border-radius: 0 0 0 6px;
+    }
+
+    .step-card-day::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--border);
+      top: 0; left: 0; right: 0;
+      height: 2px;
     }
 
-    .step-card:first-child::before {
-      background: var(--accent);
+    .step-card-day:first-child::before {
+      background: linear-gradient(90deg, var(--accent), rgba(255,77,28,0.4));
     }
 
-    .step-card:nth-child(2)::before {
-      background: linear-gradient(90deg, var(--accent) 0%, rgba(255,77,28,0.5) 100%);
-    }
-
-    .step-card:last-child::before {
-      background: rgba(255,77,28,0.35);
-    }
-
-    .step-connector {
-      position: absolute;
-      top: 50%;
-      right: -18px;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      background: var(--dark);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: var(--accent);
-      z-index: 1;
+    .step-card-day:last-child::before {
+      background: rgba(255,77,28,0.3);
     }
 
     .step-number {
@@ -296,7 +326,8 @@
       margin-bottom: 6px;
     }
 
-    .step-card h3 {
+    .step-card-audit h3,
+    .step-card-day h3 {
       font-family: 'Work Sans', sans-serif;
       font-size: 20px;
       font-weight: 700;
@@ -305,10 +336,15 @@
       color: var(--white);
     }
 
-    .step-card p {
+    .step-card-audit p,
+    .step-card-day p {
       color: rgba(255,255,255,0.55);
       font-size: 14.5px;
       line-height: 1.72;
+      margin-bottom: 16px;
+    }
+
+    .step-card-day p:last-of-type {
       margin-bottom: 24px;
     }
 
@@ -333,18 +369,19 @@
     }
 
     @media (max-width: 768px) {
-      .steps-grid {
+      .step-card-audit {
         grid-template-columns: 1fr;
+        border-radius: 6px 6px 0 0;
       }
-      .step-card {
+      .step-audit-price { text-align: left; }
+      .steps-days { grid-template-columns: 1fr; }
+      .step-card-day {
         border-right: 1px solid var(--border);
-        border-bottom: none;
+        border-top: 1px solid var(--border);
       }
-      .step-card:last-child {
-        border-bottom: 1px solid var(--border);
-      }
-      .step-connector {
-        display: none;
+      .step-card-day:first-child { border-radius: 0; }
+      .step-card-day:last-child {
+        border-radius: 0 0 6px 6px;
       }
     }
 
@@ -850,30 +887,45 @@
       <div class="section-label">The Service</div>
       <h2 class="section-title">Three steps. Real outcomes.</h2>
       <p class="section-body">Every AI Ignite engagement follows a clear progression — starting with where you actually are, not where we assume you to be.</p>
-      <div class="steps-grid">
+      <div class="steps-wrapper">
 
-        <div class="step-card">
-          <div class="step-number">Step 1</div>
-          <h3>AI Readiness Audit</h3>
-          <p>Before anything else, we find out exactly where you stand. A focused 30-minute session combined with a proprietary AI readiness assessment gives you a personalised score out of 10 and a clear picture of where AI can make the biggest difference in your business. No guesswork. No generic advice. Just clarity on your next right step.</p>
-          <div class="step-price">$250 <span>+ GST</span></div>
-          <div class="step-credit">Credited in full against Day One if you proceed</div>
-          <span class="step-connector">→</span>
+        <!-- Step 1: Audit — full width -->
+        <div class="step-card-audit">
+          <div class="step-audit-text">
+            <div class="step-number">Step 1</div>
+            <h3>AI Readiness Audit</h3>
+            <p>Before anything else, we find out exactly where you stand. A focused 30-minute session combined with a proprietary AI readiness assessment gives you a personalised score out of 10 and a clear picture of where AI can make the biggest difference in your business. No guesswork. No generic advice. Just clarity on your next right step.</p>
+          </div>
+          <div class="step-audit-price">
+            <div class="step-price">$250 <span>+ GST</span></div>
+            <div class="step-credit">Credited in full against Day One</div>
+          </div>
         </div>
 
-        <div class="step-card">
-          <div class="step-number">Step 2</div>
-          <h3>Day One — Activate &amp; Identify</h3>
-          <p>A full day working hands-on with you and up to three of your team. We work through real activities together using your own business context — matching your email tone, planning your week with AI, drafting customer replies, summarising reports, brainstorming content, and building to-do lists from meeting transcripts. We finish by reviewing your business together to spot where AI could move the needle right away. By the end of the day your team is up and running with AI, and a clear conversation about what Day Two could look like is already on the table. Includes a follow-up window where I'm available by phone or message after the day.</p>
-          <div class="step-price">$3,000 <span>+ GST</span></div>
-          <span class="step-connector">→</span>
-        </div>
+        <!-- Down arrow -->
+        <div class="step-arrow-down">↓</div>
 
-        <div class="step-card">
-          <div class="step-number">Step 3</div>
-          <h3>Day Two — Build &amp; Implement</h3>
-          <p>Day Two is shaped entirely by your business. For some that means building new AI-powered workflows with your team. For others it means reorganising how the business stores, shares and accesses information so AI can work effectively across everything you do. Either way, you leave with a clear foundation to keep building from. Includes a follow-up window where I'm available by phone or message after the day.</p>
-          <div class="step-price">$5,000 <span>+ GST</span></div>
+        <!-- Step 2 + Step 3 side by side -->
+        <div class="steps-days">
+
+          <div class="step-card-day">
+            <div class="step-number">Step 2</div>
+            <h3>Day One — Activate &amp; Identify</h3>
+            <p>A full day working hands-on with you and up to three of your team — using your own business context throughout, not generic examples.</p>
+            <p>We work through real activities together: matching your email tone, planning the week ahead with AI, drafting customer support replies from your own data, summarising reports for quick insights, brainstorming marketing content, and setting up AI-generated to-do lists from phone and meeting call transcripts.</p>
+            <p>We finish by reviewing the business together to identify where AI could move the needle right away — which naturally shapes what Day Two could look like, with a follow-up conversation booked for those who want to go further.</p>
+            <p>Includes a follow-up window where I'm available by phone or message after the day.</p>
+            <div class="step-price">$3,000 <span>+ GST</span></div>
+          </div>
+
+          <div class="step-card-day">
+            <div class="step-number">Step 3</div>
+            <h3>Day Two — Build &amp; Implement</h3>
+            <p><strong>Day Two is shaped entirely by your business. For some that means building new AI-powered workflows with your team. For others it means reorganising how the business stores, shares and accesses information so AI can work effectively across everything you do. Either way, you leave with a clear foundation to keep building from.</strong></p>
+            <p>Includes a follow-up window where I'm available by phone or message after the day.</p>
+            <div class="step-price">$5,000 <span>+ GST</span></div>
+          </div>
+
         </div>
 
       </div>
@@ -920,7 +972,7 @@
 
         <div class="faq-item">
           <button class="faq-question">How does the process start? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">It starts with a short call to make sure we're the right fit for each other. I only work with businesses where I genuinely believe AI Ignite will make a difference — and where the timing is right. If it's not a fit, I'll say so and point you in the right direction. If it is, we begin with the AI Readiness Audit.</div>
+          <div class="faq-answer">Simple. Click the button, complete a short form, and book your 30-minute AI Readiness Audit — $250, paid upfront to confirm your spot. No calls, no back and forth. We get straight into it.</div>
         </div>
 
         <div class="faq-item">
@@ -935,7 +987,7 @@
 
         <div class="faq-item">
           <button class="faq-question">What happens before Day One? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">Once the audit is complete and you've decided to proceed, we schedule a one-hour Discovery call — you, me, and anyone from your team who wants to join. We map your current tech setup, talk through what you're hoping to get out of the process, and lock in the focus for Day One. I'll also ask you to set up paid accounts on both ChatGPT and Claude before the day — so we hit the ground running with no delays. A 50% deposit is required to confirm your Day One booking.</div>
+          <div class="faq-answer">Once the audit is complete and you've decided to proceed, I'll send you a short form to complete before Day One. This covers the date that works best for you, who will be in the room and their roles, and a few simple setup instructions — including making sure everyone has an active Claude subscription before the day so we hit the ground running with no delays. That's it. No lengthy onboarding, no extra calls. We keep it simple so you can focus on showing up ready to go.</div>
         </div>
 
         <div class="faq-item">
@@ -975,7 +1027,7 @@
 
         <div class="faq-item">
           <button class="faq-question">What's the investment? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">The AI Readiness Audit is $250 — credited in full against Day One if you proceed. Day One is $3,000 with a 50% deposit to confirm your booking. Day Two is $5,000, scoped and agreed before we begin. The most common path is to start with the Audit, move to Day One, and then Day Two once we've identified a high-value opportunity in the business we can build on together.</div>
+          <div class="faq-answer">The AI Readiness Audit is $250 — credited in full against Day One if you proceed. Day One is $3,000, payable in full to confirm your booking. Day Two is $5,000, scoped, agreed and paid in full before we begin. The most common path is to start with the Audit, move to Day One, and then Day Two once we've identified a high-value opportunity in the business we can build on together.</div>
         </div>
 
       </div>
