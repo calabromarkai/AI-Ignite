@@ -751,6 +751,34 @@
       .form-row { grid-template-columns: 1fr; }
     }
 
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      background: rgba(22, 53, 88, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-nav .container {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 28px 24px;
@@ -801,8 +829,15 @@
 </head>
 <body>
 
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="#"><img src="ai-ignite-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+    </div>
+  </nav>
+
   <!-- ── HERO ── -->
-  <section class="hero">
+  <section class="hero" style="padding-top: 144px;">
     <div class="container">
 <h1>Most businesses know they should be using AI.<br /><em>Almost none know where to start.</em></h1>
       <p class="hero-sub">AI Ignite gives you and your team the confidence to start using AI — practical, hands-on, and clear from day one.</p>
