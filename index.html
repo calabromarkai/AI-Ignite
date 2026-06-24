@@ -966,6 +966,37 @@
     </div>
   </section>
 
+  <!-- ── DAY ONE DIARIES ── -->
+  <style>
+    .diaries { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .diaries-card { display:block; text-decoration:none; margin-top:48px; background:var(--dark-3); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition: border-color .18s, transform .15s; }
+    .diaries-card:hover { border-color: rgba(255,77,28,0.5); transform: translateY(-2px); }
+    .diaries-grid { display:grid; grid-template-columns: 300px 1fr; }
+    .diaries-grid img { width:100%; height:100%; min-height:240px; object-fit:cover; object-position:center; display:block; }
+    .diaries-text { padding:34px 38px; }
+    .diaries-text .q { font-size:19px; line-height:1.55; color:var(--white); font-style:italic; margin-bottom:18px; }
+    .diaries-text .who { font-size:14px; font-weight:600; color:var(--accent); }
+    .diaries-text .read { margin-top:24px; font-size:15px; font-weight:700; color:var(--white); }
+    @media (max-width: 640px) { .diaries-grid { grid-template-columns: 1fr; } .diaries-grid img { min-height:220px; } }
+  </style>
+  <section class="diaries">
+    <div class="container">
+      <div class="section-label">Day One Diaries</div>
+      <h2 class="section-title">See a real Day One.</h2>
+      <p class="section-body">Real businesses, real outcomes — here's how the very first one went.</p>
+      <a href="/day-one-diaries-jesse.html" class="diaries-card">
+        <div class="diaries-grid">
+          <img src="Jesse-Mark.jpeg" alt="Mark with Jesse Cummins at Day One" />
+          <div class="diaries-text">
+            <p class="q">"I was absolutely stoked to have my first functional and valuable tool to go away and implement ASAP — I learnt SOOOO much."</p>
+            <div class="who">Jesse Cummins — Found Kitchens &amp; Joinery</div>
+            <div class="read">Read Jesse's Day One →</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- ── WHO IT'S FOR ── -->
   <section class="who" id="who">
     <div class="container">
