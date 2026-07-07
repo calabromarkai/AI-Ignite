@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Day One Diaries — EmergingIT | AI Ignite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #FF4D1C; --accent-dark: #e03a0a;
+      --dark: #163558; --dark-2: #1a3d65; --dark-3: #1f4472;
+      --white: #fff; --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Work Sans', sans-serif; background: var(--dark); color: var(--white); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 72px; display: flex; align-items: center; background: rgba(22,53,88,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 860px; margin: 0 auto; }
+    .nav-logo { height: 44px; width: auto; display: block; }
+    .nav-back { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .nav-back:hover { color: var(--white); }
+
+    .container { max-width: 860px; margin: 0 auto; width: 100%; }
+    section { padding: 72px 24px; }
+
+    /* HERO */
+    .hero { padding: 140px 24px 64px; border-bottom: 1px solid var(--border); }
+    .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 800; line-height: 1.08; margin-bottom: 14px; }
+    .hero-meta { font-size: 18px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 8px; }
+    .hero-meta strong { color: var(--accent); font-weight: 600; }
+    .hero-lead { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 620px; margin-top: 22px; }
+
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .body-text { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.75; max-width: 700px; }
+    .body-text + .body-text { margin-top: 18px; }
+    .alt { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* TIMELINE */
+    .timeline { list-style: none; margin-top: 40px; }
+    .timeline li { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .timeline li:last-child { border-bottom: none; }
+    .t-step { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,77,28,0.15); color: var(--accent); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .t-body h4 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .t-body p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .t-time { color: var(--accent); font-weight: 600; }
+
+    .callout { margin: 36px 0; padding: 22px 26px; background: rgba(255,77,28,0.08); border: 1px solid rgba(255,77,28,0.25); border-radius: 10px; font-size: 18px; }
+    .callout strong { color: var(--accent); }
+
+    /* QUOTE */
+    .quote { background: var(--dark-2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 30px 34px; margin-top: 28px; }
+    .quote p { font-size: 19px; line-height: 1.65; color: var(--white); font-style: italic; }
+    .quote .who { margin-top: 16px; font-style: normal; font-size: 14px; color: var(--accent); font-weight: 600; }
+
+    /* CTA / FOOTER */
+    .cta { background: var(--dark-3); text-align: center; border-top: 1px solid var(--border); }
+    .cta h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--accent); color: var(--white); font-size: 15px; font-weight: 600; padding: 16px 34px; border-radius: 4px; text-decoration: none; transition: background .18s; }
+    .btn:hover { background: var(--accent-dark); }
+    footer { padding: 30px 24px; text-align: center; border-top: 1px solid var(--border); }
+    footer .tag { font-family: 'Work Sans'; font-style: italic; color: rgba(255,255,255,0.5); font-size: 15px; margin-bottom: 8px; }
+    footer .copy { font-size: 13px; color: rgba(255,255,255,0.22); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <a href="/" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Day One Diaries</div>
+      <h1>EmergingIT</h1>
+      <p class="hero-meta">Managed IT &amp; Cyber Security &nbsp;·&nbsp; <strong>July 2026</strong></p>
+      <p class="hero-lead">A special project, and a little different from a standard Day One. Rather than a single business owner, the brief was to bring a whole team along with AI — first their sales team, then their senior leaders, including the CEO and MD.</p>
+    </div>
+  </section>
+
+  <!-- THE BRIEF -->
+  <section>
+    <div class="container">
+      <div class="section-label">The brief</div>
+      <h2 class="section-title">A different kind of engagement.</h2>
+      <p class="body-text">EmergingIT is an outsourced IT provider, looking after businesses of every shape and size — which means security and cyber sit at the very heart of everything they do. Steve (CEO) and Dean (MD) brought me in for a special project: share what I had been learning, and open up the conversation about what AI could mean for the business.</p>
+      <p class="body-text">Two audiences, one goal — get as many of the team as possible up to first base with AI, and start the conversation about where it could take them.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT RAN -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">How the day ran</div>
+      <h2 class="section-title">Two sessions. One goal: get everyone to first base.</h2>
+
+      <ol class="timeline">
+        <li><span class="t-step">1</span><div class="t-body"><h4><span class="t-time">90 minutes</span> — the sales team</h4><p>An honest, hands-on look at what AI can actually do. I built a couple of examples live on screen from a big, convoluted spreadsheet they use in their sales lead-qualification — turning something unwieldy into something workable in minutes.</p></div></li>
+        <li><span class="t-step">2</span><div class="t-body"><h4><span class="t-time">2 hours</span> — the senior leaders (incl. CEO &amp; MD)</h4><p>After lunch, a wider-ranging conversation with the leadership team — naturally viewed through the lens of cyber and security, as you'd expect from an IT provider, and into the bigger questions of where AI fits for the business and its clients.</p></div></li>
+      </ol>
+
+      <p class="body-text" style="margin-top:32px;">The conversations were free-flowing and natural. Because the team lives in the Microsoft Copilot world, talk moved easily back and forth between Copilot and the other tools — and, tellingly, most of the team had barely touched Claude, so simply seeing it in action was a genuine eye-opener.</p>
+
+      <div class="callout">The message I kept coming back to: <strong>"Just start using it — even if it's only personal."</strong> Seeing how easy it really is, is half the battle.</div>
+    </div>
+  </section>
+
+  <!-- THE TURNING POINT -->
+  <section>
+    <div class="container">
+      <div class="section-label">The turning point</div>
+      <h2 class="section-title">"We've just got to get started."</h2>
+      <p class="body-text">Towards the end, the conversation turned to <em>where to from here</em>. Dean, the MD, raised a concept close to how they think about their business — <strong>"client for life."</strong> The idea that when you truly understand a client and serve them well, they stay with you for the long haul.</p>
+      <p class="body-text">It struck a chord. Used well, AI could help them have sharper conversations, understand their customers more deeply, and spot where they could serve them better — the very things that keep a client for life.</p>
+      <p class="body-text">By the end there was a shared realisation in the room: they didn't need a perfect, ready-made plan to begin. They just had to <em>start</em> — even with a few small "satellite" projects the team could experiment with themselves. Their own clients are already using AI; getting ahead of that is an opportunity, not a threat.</p>
+
+      <!-- QUOTE SLOT — drop in a real line from the phone recordings / Steve or Dean when ready:
+      <div class="quote">
+        <p>"[Real quote here]"</p>
+        <div class="who">— [Name], EmergingIT</div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- WHAT MADE IT DIFFERENT -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">What made this one different</div>
+      <h2 class="section-title">Shaped entirely around their world.</h2>
+      <p class="body-text">This wasn't an off-the-shelf session. It was built around a bigger team, a Microsoft-first environment, and a security-led mindset — proof that what I do bends to the business in front of me, not the other way around.</p>
+      <p class="body-text">Whether it's a solo owner building their first tool, or a leadership team getting on the same page about AI, the goal is the same: get real, get hands-on, and get people moving.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Curious what AI could do for your business?</h2>
+      <p>Take the free AI assessment — a few quick questions, and I'll come back to you personally.</p>
+      <a href="https://ai-ignite-assessment.vercel.app/" class="btn" target="_blank" rel="noopener">Take the Free AI Assessment →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="tag">AI Ignite — get your hands on the steering wheel.</p>
+    <p class="copy">&copy; 2026 AI Ignite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
