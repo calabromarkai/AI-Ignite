@@ -82,7 +82,7 @@
 
     .site-nav .container { display: flex; align-items: center; }
 
-    .nav-logo { height: 77px; width: auto; display: block; }
+    .nav-logo { height: 44px; width: auto; display: block; }
 
     /* ── DIARY HERO ── */
     .diary-hero {
@@ -180,7 +180,9 @@
 
     .diary-photo-caption {
       font-size: 13px;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      text-align: center;
       margin-top: 12px;
     }
 
@@ -293,7 +295,15 @@
       text-align: center;
     }
 
-    footer p {
+    footer .tag {
+      font-family: 'Work Sans', sans-serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    footer .copy {
       font-size: 13px;
       color: rgba(255,255,255,0.22);
     }
@@ -331,6 +341,7 @@
   <!-- ── PHOTO ── -->
   <div class="diary-photo-wrap">
     <img src="ParcWealthandMark.jpeg" alt="Michelle Bryant, Mark Calabro and P.C. Lebovits at Parc Wealth's Day One" class="diary-photo" />
+    <p class="diary-photo-caption">Michelle, Mark and P.C. at the end of Day One.</p>
   </div>
 
   <!-- ── BODY ── -->
@@ -375,13 +386,14 @@
     <div class="container">
       <h2>Want a Day One like this for your business?</h2>
       <p>Take the free assessment and see your results instantly — plus 2 free AI guides sent straight to your inbox.</p>
-      <a href="https://ai-ignite-assessment.vercel.app" class="btn">Take the Free AI Assessment →</a>
+      <a href="https://ai-ignite-assessment.vercel.app/" class="btn" target="_blank" rel="noopener">Take the Free AI Assessment →</a>
     </div>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer>
-    <p>&copy; 2026 AI Ignite. All rights reserved.</p>
+    <p class="tag">AI Ignite — get your hands on the steering wheel.</p>
+    <p class="copy">&copy; 2026 AI Ignite. All rights reserved.</p>
   </footer>
 
 </body>
