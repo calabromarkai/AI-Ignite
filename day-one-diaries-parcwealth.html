@@ -4,393 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Day One Diaries: Parc Wealth — AI Ignite</title>
+  <title>Day One Diaries — Parc Wealth | AI Ignite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --accent: #FF4D1C;
-      --accent-dark: #e03a0a;
-      --dark: #163558;
-      --dark-2: #1a3d65;
-      --dark-3: #1f4472;
-      --mid: #6B6B6B;
-      --light: #F5F4F1;
-      --white: #FFFFFF;
-      --border: rgba(255,255,255,0.08);
+      --accent: #FF4D1C; --accent-dark: #e03a0a;
+      --dark: #163558; --dark-2: #1a3d65; --dark-3: #1f4472;
+      --white: #fff; --border: rgba(255,255,255,0.08);
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Work Sans', sans-serif; background: var(--dark); color: var(--white); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: 'Work Sans', sans-serif;
-      background: var(--dark);
-      color: var(--white);
-      font-size: 17px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--white);
-      font-family: 'Work Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      padding: 16px 36px;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background 0.18s ease, transform 0.15s ease;
-    }
-
-    .btn:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-
-    /* ── NAV ── */
-    .site-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0 24px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      background: rgba(22, 53, 88, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .site-nav .container { display: flex; align-items: center; }
-
+    /* NAV */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 72px; display: flex; align-items: center; background: rgba(22,53,88,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 860px; margin: 0 auto; }
     .nav-logo { height: 44px; width: auto; display: block; }
+    .nav-back { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .nav-back:hover { color: var(--white); }
 
-    /* ── DIARY HERO ── */
-    .diary-hero {
-      padding: 168px 24px 56px;
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
+    .container { max-width: 860px; margin: 0 auto; width: 100%; }
+    section { padding: 72px 24px; }
 
-    .diary-hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255,77,28,0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
+    /* HERO */
+    .hero { padding: 140px 24px 64px; border-bottom: 1px solid var(--border); }
+    .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 800; line-height: 1.08; margin-bottom: 14px; }
+    .hero-meta { font-size: 18px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 8px; }
+    .hero-meta strong { color: var(--accent); font-weight: 600; }
+    .hero-lead { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 620px; margin-top: 22px; }
 
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      margin-bottom: 40px;
-      transition: color 0.15s;
-    }
+    /* PHOTO SLOTS (placeholders until real images dropped in) */
+    .photo-slot { background: var(--dark-3); border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: rgba(255,255,255,0.45); padding: 28px; min-height: 300px; margin: 32px 0; }
+    .photo-slot .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .photo-slot .fname { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 10px; font-family: monospace; }
+    .photo-caption { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 2px; margin-bottom: 12px; font-style: italic; }
+    .case-photo { width: 100%; height: auto; border-radius: 10px; display: block; margin: 36px 0 6px; border: 1px solid var(--border); }
+    .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .photo-row { grid-template-columns: 1fr; } }
 
-    .back-link:hover { color: var(--white); }
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .body-text { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.75; max-width: 680px; }
+    .body-text + .body-text { margin-top: 18px; }
+    .alt { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
+    /* TIMELINE */
+    .timeline { list-style: none; margin-top: 40px; }
+    .timeline li { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .timeline li:last-child { border-bottom: none; }
+    .t-step { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,77,28,0.15); color: var(--accent); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .t-body h4 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .t-body p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .t-time { color: var(--accent); font-weight: 600; }
 
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--accent);
-    }
+    .callout { margin: 36px 0; padding: 22px 26px; background: rgba(255,77,28,0.08); border: 1px solid rgba(255,77,28,0.25); border-radius: 10px; font-size: 18px; }
+    .callout strong { color: var(--accent); }
 
-    .diary-hero h1 {
-      font-family: 'Work Sans', sans-serif;
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.1;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 20px;
-      max-width: 780px;
-    }
+    .stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .stack .chip { background: var(--dark-3); border: 1px solid var(--border); border-radius: 30px; padding: 8px 16px; font-size: 14px; color: rgba(255,255,255,0.75); }
+    .stack .chip b { color: var(--white); }
 
-    .diary-hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    /* QUOTE */
+    .quote { background: var(--dark-2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 30px 34px; margin-top: 28px; }
+    .quote p { font-size: 19px; line-height: 1.65; color: var(--white); font-style: italic; }
+    .quote .who { margin-top: 16px; font-style: normal; font-size: 14px; color: var(--accent); font-weight: 600; }
+    .pre-quote { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 680px; }
 
-    .diary-meta {
-      font-size: 15.5px;
-      color: rgba(255,255,255,0.5);
-      max-width: 620px;
-      line-height: 1.8;
-    }
+    /* PARKING LOT */
+    .park-list { list-style: none; margin: 28px 0; }
+    .park-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 16px; color: rgba(255,255,255,0.78); }
+    .park-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 8px; flex-shrink: 0; }
 
-    .diary-meta strong { color: rgba(255,255,255,0.75); font-weight: 600; }
-
-    /* ── PHOTO ── */
-    .diary-photo-wrap {
-      max-width: 860px;
-      margin: 0 auto 8px;
-      padding: 0 24px;
-    }
-
-    .diary-photo {
-      width: 100%;
-      max-height: 480px;
-      object-fit: cover;
-      object-position: center 25%;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: block;
-    }
-
-    .diary-photo-caption {
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-      font-style: italic;
-      text-align: center;
-      margin-top: 12px;
-    }
-
-    /* ── BODY ── */
-    .diary-body { padding: 72px 24px 32px; }
-
-    .diary-container { max-width: 720px; }
-
-    .diary-body p {
-      color: rgba(255,255,255,0.72);
-      font-size: 17.5px;
-      line-height: 1.8;
-      margin-bottom: 26px;
-    }
-
-    .diary-body h2 {
-      font-family: 'Work Sans', sans-serif;
-      font-size: clamp(22px, 3vw, 28px);
-      font-weight: 700;
-      color: var(--white);
-      margin: 52px 0 20px;
-      line-height: 1.3;
-    }
-
-    .diary-body ul {
-      list-style: none;
-      margin: 0 0 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .diary-body ul li {
-      color: rgba(255,255,255,0.72);
-      font-size: 17px;
-      line-height: 1.65;
-      padding-left: 22px;
-      position: relative;
-    }
-
-    .diary-body ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .diary-quote {
-      margin: 40px 0;
-      padding: 32px 36px;
-      background: var(--dark-2);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-    }
-
-    .diary-quote p {
-      font-size: 19px;
-      line-height: 1.6;
-      color: var(--white);
-      font-style: italic;
-      margin-bottom: 12px;
-    }
-
-    .diary-quote cite {
-      display: block;
-      font-style: normal;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .diary-closing {
-      margin-top: 8px;
-      font-size: 17.5px;
-      color: rgba(255,255,255,0.72);
-    }
-
-    /* ── CTA ── */
-    .diary-cta {
-      background: var(--dark-2);
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 80px 24px;
-      margin-top: 40px;
-    }
-
-    .diary-cta h2 {
-      font-family: 'Work Sans', sans-serif;
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .diary-cta p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.55);
-      max-width: 480px;
-      margin: 0 auto 32px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 28px 24px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    footer .tag {
-      font-family: 'Work Sans', sans-serif;
-      font-style: italic;
-      color: rgba(255,255,255,0.5);
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    footer .copy {
-      font-size: 13px;
-      color: rgba(255,255,255,0.22);
-    }
-
-    @media (max-width: 640px) {
-      .diary-hero { padding: 140px 20px 40px; }
-      .diary-body { padding: 56px 20px 24px; }
-      .diary-quote { padding: 24px 22px; }
-    }
+    /* CTA / FOOTER */
+    .cta { background: var(--dark-3); text-align: center; border-top: 1px solid var(--border); }
+    .cta h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--accent); color: var(--white); font-size: 15px; font-weight: 600; padding: 16px 34px; border-radius: 4px; text-decoration: none; transition: background .18s; }
+    .btn:hover { background: var(--accent-dark); }
+    footer { padding: 30px 24px; text-align: center; border-top: 1px solid var(--border); }
+    footer .tag { font-family: 'Work Sans'; font-style: italic; color: rgba(255,255,255,0.5); font-size: 15px; margin-bottom: 8px; }
+    footer .copy { font-size: 13px; color: rgba(255,255,255,0.22); }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
+  <!-- NAV -->
   <nav class="site-nav">
     <div class="container">
       <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <a href="/" class="nav-back">← Back to home</a>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
-  <section class="diary-hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <a href="/" class="back-link">← Back to AI Ignite</a>
-      <div class="hero-eyebrow">Day One Diaries</div>
-      <h1>Parc Wealth's <em>Day One</em></h1>
-      <p class="diary-meta">
-        <strong>Client:</strong> Parc Wealth Management, Parc Finance &amp; Lending, Parc Insurance Brokers — Melbourne<br />
-        <strong>Engagement:</strong> Two-day AI strategy and build sprint, Day One<br />
-        <strong>In the room:</strong> Michelle Bryant (COO), P.C. Lebovits (Managing Director)
-      </p>
+      <div class="eyebrow">Day One Diaries</div>
+      <h1>Parc Wealth</h1>
+      <p class="hero-meta">Financial Advice, Finance &amp; Insurance &nbsp;·&nbsp; <strong>July 2026</strong></p>
+      <p class="hero-lead">Three businesses under one roof — financial advice, mortgage broking and insurance broking — with an AFSL to protect and a team whose time is worth far more on judgement calls than on formatting. Understandably careful about AI, and with the most to gain from getting it right.</p>
     </div>
   </section>
 
-  <!-- ── PHOTO ── -->
-  <div class="diary-photo-wrap">
-    <img src="ParcWealthandMark.jpeg" alt="Michelle Bryant, Mark Calabro and P.C. Lebovits at Parc Wealth's Day One" class="diary-photo" />
-    <p class="diary-photo-caption">Michelle, Mark and P.C. at the end of Day One.</p>
-  </div>
+  <!-- THE BRIEF -->
+  <section>
+    <div class="container">
+      <div class="section-label">The brief</div>
+      <h2 class="section-title">Efficiency creation, in every corner of the business.</h2>
+      <p class="body-text">As PC put it when we sat down to start: <em>"there's efficiency creation in so many parts of this business — that's what I'm interested in."</em> That was the brief, and it shaped the whole two days.</p>
+      <p class="body-text">Like most firms this size, they're already deep in Microsoft 365 and Copilot, and understandably protective of it — client data doesn't leave their environment, full stop.</p>
+      <div class="callout">So we set the rule that shaped everything: <strong>prototype and think things through with dummy data — then rebuild the finished approach back inside their own Microsoft world, where the real data lives.</strong> No compromise on security, no slowdown on capability.</div>
+    </div>
+  </section>
 
-  <!-- ── BODY ── -->
-  <section class="diary-body">
-    <div class="container diary-container">
+  <!-- THE MORNING -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">The morning</div>
+      <h2 class="section-title">Getting to first base.</h2>
+      <p class="body-text">We started with fundamentals — how instructions actually work, what a project remembers and what it doesn't, how to hand over just enough context without overloading it.</p>
+      <p class="body-text">Michelle picked it up fast. By late morning she wasn't just following along, she was building — writing her own instruction set for a real piece of Parc's compliance work, and watching the output sharpen as she anchored it to the framework it needed to satisfy.</p>
+    </div>
+  </section>
 
-      <p>Parc Wealth is three businesses under one roof — financial advice, mortgage broking, and insurance broking — with an AFSL to protect and three full-time para-planners whose time is worth far more spent on judgement calls than on formatting. As PC put it when we sat down to start: "There's efficiency creation in so many parts of this business — that's what I'm interested in." That's exactly the brief Day One was built around.</p>
-
-      <p>Like most firms this size, they're already deep in Microsoft 365 and Copilot, and understandably protective of it — client data doesn't leave their environment, full stop. So before we touched a single real client file, we agreed the pattern that shaped the whole two days: prototype and think things through using dummy data, then rebuild the finished approach back inside their own Microsoft tenancy, where the real data lives. No compromise on security, no slowdown on capability.</p>
-
-      <h2>The morning: getting to first base</h2>
-      <p>We started with fundamentals — how instructions actually work, what a project remembers and what it doesn't, how to hand over just enough context without overloading it. Michelle picked it up fast. By late morning she wasn't just following along, she was building — writing her own instruction set for a real piece of Parc's compliance work and watching the output sharpen as she anchored it to the actual regulatory framework it needed to satisfy.</p>
-
-      <h2>The afternoon: two agents, live, by 4pm</h2>
-      <p>This is the part I'm proudest of. In one afternoon, working side by side across two platforms, we built and deployed two working tools onto a new internal Parc intranet page:</p>
-      <ul>
-        <li><strong style="color:rgba(255,255,255,0.9);">A marketing compliance checker</strong> — every social post and client email run against Parc's own compliance checklist before it goes out.</li>
-        <li><strong style="color:rgba(255,255,255,0.9);">The advice-audit tool</strong> — Michelle had actually built the first version of this herself months earlier, her first real effort inside Copilot. It was already good — it just needed some tweaking. We refined it together and had it live on the new intranet page before long, checking client advice files against the Corporations Act and the relevant ASIC regulatory guides.</li>
+  <!-- THE AFTERNOON -->
+  <section>
+    <div class="container">
+      <div class="section-label">The afternoon</div>
+      <h2 class="section-title">Two agents, live, by 4pm.</h2>
+      <p class="body-text">This is the part I'm proudest of. In one afternoon, working side by side across two platforms, we built and deployed two working tools the team could start using straight away:</p>
+      <ul class="park-list">
+        <li><span><strong>A content compliance checker</strong> — running new material past their own internal standards before it goes out, saving many hours of painstaking checking before it gets to a human in the team.</span></li>
+        <li><span><strong>A document-audit tool</strong> — Michelle had actually built the first version of this herself months earlier, her first real effort inside Copilot. We refined it together and had it live before long, checking a category of client documents against the rules they need to satisfy.</span></li>
       </ul>
-      <p>We tested the audit tool against a full dummy client file — fact find, statement of advice, letter of engagement, meeting notes, the lot. What used to take days and a paid external review came back in seconds, with a clear read on what was fine and what needed a second look from a human. Not a black box saying "trust me" — a tool that shows its working and still leaves the judgement call where it belongs.</p>
-      <p>By the time P.C. joined us at the end of the day to see it running, both agents were live, tested, and already shared with the team.</p>
+      <p class="body-text">We tested the audit tool against a full set of test documents. What used to take days and an external review came back in seconds, with a clear read on what was fine and what needed a second look from a team member. A neat tool that helps the team, saves time, but still leaves the judgement call where it belongs.</p>
+      <p class="body-text">By the time P.C. joined us at the end of the day to see it running, both tools were live, tested, and already shared with the team.</p>
 
-      <div class="diary-quote">
-        <p>"That's now you can go in there and chuck in a document, and it comes back with — yep, this is compliant, this isn't, you need to go back and check."</p>
-        <cite>Michelle Bryant, COO</cite>
+      <img src="ParcWealthandMark.jpeg" alt="Michelle Bryant, Mark Calabro and P.C. Lebovits at Parc Wealth's Day One" class="case-photo" style="max-width: 460px; margin-left: auto; margin-right: auto;" />
+      <p class="photo-caption">Michelle, Mark and P.C. at the end of Day One.</p>
+
+      <div class="quote">
+        <p>"Now you can drop a document in, and it comes straight back and tells you what's fine and what needs another look."</p>
+        <div class="who">— Michelle Bryant, COO</div>
       </div>
-
-      <div class="diary-quote">
-        <p>"We've got something tangible to build on from here — I wouldn't have been happy going home without that."</p>
-        <cite>Mark, closing out the day</cite>
-      </div>
-
-      <h2>What's next</h2>
-      <p>We're regrouping in a few days — giving Michelle time to think through what the highest-value projects and tools could be next — before we reconvene ahead of Day Two. PC's already got his eye on two more: using AI to communicate with their active customer and prospect database, and getting more out of LinkedIn.</p>
-      <p class="diary-closing">One day in, and the team has two working tools they built themselves, understand, and trust. That's the bar for this work: not a demo, something that survives Monday morning without me in the room.</p>
-
     </div>
   </section>
 
-  <!-- ── CTA ── -->
-  <section class="diary-cta">
+  <!-- WHAT'S NEXT -->
+  <section class="alt">
     <div class="container">
-      <h2>Want a Day One like this for your business?</h2>
-      <p>Take the free assessment and see your results instantly — plus 2 free AI guides sent straight to your inbox.</p>
+      <div class="section-label">What's next</div>
+      <h2 class="section-title">Where it goes from here.</h2>
+      <p class="body-text">We're regrouping in a few days — giving Michelle time to think through what the highest-value projects could be next — before we reconvene ahead of Day Two. There's already a shortlist forming of where AI could help most.</p>
+      <div class="quote">
+        <p>"I learnt so much and I'm really excited about the next phase of the journey. It was a brilliant day and I've come away buzzing with ideas."</p>
+        <div class="who">— Michelle Bryant, COO</div>
+      </div>
+      <p class="body-text" style="margin-top:28px;">One day in, and the team has two working tools they built themselves, understand, and trust. That's the bar for this work: not a demo, something that survives Monday morning without me in the room.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Want a Day One like this?</h2>
+      <p>Take the free AI assessment — a few quick questions, and I'll come back to you personally.</p>
       <a href="https://ai-ignite-assessment.vercel.app/" class="btn" target="_blank" rel="noopener">Take the Free AI Assessment →</a>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
   <footer>
     <p class="tag">AI Ignite — get your hands on the steering wheel.</p>
     <p class="copy">&copy; 2026 AI Ignite. All rights reserved.</p>
