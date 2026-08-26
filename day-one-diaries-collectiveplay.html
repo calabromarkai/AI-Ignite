@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day One Diaries — Collective Play | AI Ignite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #FF4D1C; --accent-dark: #e03a0a;
+      --dark: #163558; --dark-2: #1a3d65; --dark-3: #1f4472;
+      --white: #fff; --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Work Sans', sans-serif; background: var(--dark); color: var(--white); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 72px; display: flex; align-items: center; background: rgba(22,53,88,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 860px; margin: 0 auto; }
+    .nav-logo { height: 44px; width: auto; display: block; }
+    .nav-back { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .nav-back:hover { color: var(--white); }
+
+    .container { max-width: 860px; margin: 0 auto; width: 100%; }
+    section { padding: 72px 24px; }
+
+    /* HERO */
+    .hero { padding: 140px 24px 64px; border-bottom: 1px solid var(--border); }
+    .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 800; line-height: 1.08; margin-bottom: 14px; }
+    .hero-meta { font-size: 18px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 8px; }
+    .hero-meta strong { color: var(--accent); font-weight: 600; }
+    .hero-lead { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 620px; margin-top: 22px; }
+
+    /* PHOTO SLOTS (placeholders until real images dropped in) */
+    .photo-slot { background: var(--dark-3); border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: rgba(255,255,255,0.45); padding: 28px; min-height: 300px; margin: 32px 0; }
+    .photo-slot .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .photo-slot .fname { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 10px; font-family: monospace; }
+    .photo-caption { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 2px; margin-bottom: 12px; font-style: italic; }
+    .case-photo { width: 100%; height: auto; border-radius: 10px; display: block; margin: 36px 0 6px; border: 1px solid var(--border); }
+    .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .photo-row { grid-template-columns: 1fr; } }
+
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .body-text { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.75; max-width: 680px; }
+    .body-text + .body-text { margin-top: 18px; }
+    .alt { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* TIMELINE */
+    .timeline { list-style: none; margin-top: 40px; }
+    .timeline li { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .timeline li:last-child { border-bottom: none; }
+    .t-step { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,77,28,0.15); color: var(--accent); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .t-body h4 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .t-body p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .t-time { color: var(--accent); font-weight: 600; }
+
+    .callout { margin: 36px 0; padding: 22px 26px; background: rgba(255,77,28,0.08); border: 1px solid rgba(255,77,28,0.25); border-radius: 10px; font-size: 18px; }
+    .callout strong { color: var(--accent); }
+
+    .stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .stack .chip { background: var(--dark-3); border: 1px solid var(--border); border-radius: 30px; padding: 8px 16px; font-size: 14px; color: rgba(255,255,255,0.75); }
+    .stack .chip b { color: var(--white); }
+
+    /* QUOTE */
+    .quote { background: var(--dark-2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 30px 34px; margin-top: 28px; }
+    .quote p { font-size: 19px; line-height: 1.65; color: var(--white); font-style: italic; }
+    .quote .who { margin-top: 16px; font-style: normal; font-size: 14px; color: var(--accent); font-weight: 600; }
+    .pre-quote { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 680px; }
+
+    /* PARKING LOT */
+    .park-list { list-style: none; margin: 28px 0; }
+    .park-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 16px; color: rgba(255,255,255,0.78); }
+    .park-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 8px; flex-shrink: 0; }
+
+    /* CTA / FOOTER */
+    .cta { background: var(--dark-3); text-align: center; border-top: 1px solid var(--border); }
+    .cta h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--accent); color: var(--white); font-size: 15px; font-weight: 600; padding: 16px 34px; border-radius: 4px; text-decoration: none; transition: background .18s; }
+    .btn:hover { background: var(--accent-dark); }
+    footer { padding: 30px 24px; text-align: center; border-top: 1px solid var(--border); }
+    footer .tag { font-family: 'Work Sans'; font-style: italic; color: rgba(255,255,255,0.5); font-size: 15px; margin-bottom: 8px; }
+    footer .copy { font-size: 13px; color: rgba(255,255,255,0.22); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <a href="/" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Day One Diaries</div>
+      <h1>Collective Play</h1>
+      <p class="hero-meta">Early Learning Design &amp; Fit-Out &nbsp;·&nbsp; <strong>August 2026</strong></p>
+      <p class="hero-lead">Collective Play design, supply and fit out early learning centres — and they are growing fast. The pressure that comes with that is a familiar one: more work, more people, and more of the business held in somebody's head.</p>
+    </div>
+  </section>
+
+  <!-- THE BRIEF -->
+  <section>
+    <div class="container">
+      <div class="section-label">The brief</div>
+      <h2 class="section-title">Two people. First base. Before the team gets there.</h2>
+      <p class="body-text">Collective Play is a supply and fit-out business — room-by-room kits, inventory, purchasing, margin, and new-centre rollouts run as projects. Every one of those has detail that lives in a person rather than a system, and every one of them gets heavier as the business grows.</p>
+      <p class="body-text">The room was deliberately small: Steven, the GM, and Lou, the owner. Just the two of them, on purpose — so the two people steering the business become the two most capable people in it on AI, rather than finding themselves led by whoever on the team got there first.</p>
+      <p class="body-text">They were already on Claude, having moved across from Copilot. No Microsoft-house constraint, no data-security lock-in to work around — just a straight run at the best tool for the job.</p>
+    </div>
+  </section>
+
+  <!-- HOW WE DESIGNED THE DAY -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">How we designed the day</div>
+      <h2 class="section-title">Fundamentals first — even when there's an itch to build.</h2>
+      <p class="body-text">Steven arrived sprinting. Four months into the GM seat, he turned up with his own five-layer AI framework already sketched out — which tells you everything about how he's approaching the role.</p>
+      <p class="body-text">When someone arrives with that much momentum, the temptation is to skip ahead to "so where could we use this?" That question is a trap this early. Answer it before you understand the machinery and you end up with a shiny object every fortnight and nothing that compounds.</p>
+      <p class="body-text">So we started underneath it.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DID -->
+  <section>
+    <div class="container">
+      <div class="section-label">What we did</div>
+      <h2 class="section-title">Foundations first. Then straight onto real work.</h2>
+
+      <ol class="timeline">
+        <li><span class="t-step">1</span><div class="t-body"><h4>Claude and Projects — properly</h4><p>Why instructions matter, how files get uploaded, and what a Project actually holds and remembers — just as importantly, what it doesn't.</p></div></li>
+        <li><span class="t-step">2</span><div class="t-body"><h4>The ChatGPT comparison</h4><p>Where the equivalent instructions, files and settings live in the other camp — so nobody ends up fluent in one vendor's vocabulary and stuck inside it.</p></div></li>
+        <li><span class="t-step">3</span><div class="t-body"><h4>Models, tokens and the machinery</h4><p>The background stuff. Unglamorous, and the reason everything afterwards makes sense.</p></div></li>
+        <li><span class="t-step">4</span><div class="t-body"><h4>Recorded a real conversation</h4><p>Steven and Lou spent five minutes talking through a role they're hiring for — an interior stylist — what they actually want in the person, and how the business recruits. Captured with a transcript tool.</p></div></li>
+        <li><span class="t-step">5</span><div class="t-body"><h4>Built their first Project</h4><p>Chat, project instructions and files — with that conversation loaded in alongside the position description they already had written.</p></div></li>
+      </ol>
+
+      <div class="callout">Then, without being asked: <strong>Claude flagged the gaps between the written position description and what Steven and Lou had actually said out loud.</strong> Nobody prompted it to check. That is the difference between a feature demo and an application — and it landed on their own work, in front of them.</div>
+    </div>
+  </section>
+
+  <!-- THE DESIGN WORK -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">The back half of the day</div>
+      <h2 class="section-title">Plumbing for what he builds next.</h2>
+      <p class="body-text">With the fundamentals in, we spent the rest of the day designing — not building — the thing Steven wanted next: a single meetings "brain" covering his four new key meetings.</p>
+      <p class="body-text">One Project, four foundation files: Sales, Purchasing, Individual, Whole Business. Four files inside one project rather than four separate projects. One brain, four facets.</p>
+      <p class="body-text">The mechanics are where the real value sat:</p>
+      <ul class="park-list">
+        <li><span><strong>Instructions versus files.</strong> Instructions are how it behaves. Files are what it knows. Folder-steering rules belong in instructions, never buried inside a document.</span></li>
+        <li><span><strong>How a shared project actually works across a team.</strong> Instructions and files are shared; chats stay private; connectors don't travel between people. Which is precisely why foundation content has to live in project files rather than hanging off one person's account.</span></li>
+        <li><span><strong>Getting work out of a chat and back into a file is a deliberate two-step.</strong> Ask for the complete updated file, download it, replace the old one. Nothing commits itself — and it will quietly summarise away your detail unless you tell it not to.</span></li>
+      </ul>
+      <p class="body-text">Designed, not built. That was the point. It's his to run.</p>
+    </div>
+  </section>
+
+  <!-- IN STEVEN'S WORDS -->
+  <section>
+    <div class="container">
+      <div class="section-label">In Steven's words</div>
+      <h2 class="section-title">The foundation was the win.</h2>
+      <p class="pre-quote">Steven's own read on the day was that the value was the foundation — understanding what this is and what it's actually for. He was open about the pull to leap ahead to "where could we use this", and about deliberately holding himself back from it.</p>
+      <div class="quote">
+        <p>"Align the AI journey with our growth journey — but bring it back to the fundamentals first."</p>
+        <div class="who">— Steven Hallett, General Manager, Collective Play</div>
+      </div>
+      <p class="body-text" style="margin-top:28px;">His plan, in his own framing: small trials, mini projects, build the fundamentals, then judge the bigger questions from a position of actually knowing. A word he kept reaching for through the afternoon was "ecosystem" — a mental model forming in real time.</p>
+
+      <!-- PHOTO: drop CollectivePlay-Mark.jpeg into the site folder, then replace this whole .photo-slot block with:
+           <img src="CollectivePlay-Mark.jpeg" alt="Mark Calabro with Steven Hallett and Lou at Collective Play's Day One" class="case-photo" />
+           <p class="photo-caption">Steven, Lou and Mark at the end of Day One.</p>
+      -->
+      <div class="photo-slot">
+        <div class="tag">Photo to come</div>
+        <div>Steven, Lou and Mark at the end of Day One</div>
+        <div class="fname">CollectivePlay-Mark.jpeg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARKING LOT -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">The parking lot</div>
+      <h2 class="section-title">Named, parked, and deliberately not started.</h2>
+      <p class="body-text">Not everything belongs in one day. Some of it we named and left exactly where it was:</p>
+      <ul class="park-list">
+        <li>The meetings brain — designed on the day, and his to build</li>
+        <li>A trial putting an account manager onto recording client conversations, with clear rules about what gets captured and how it gets used</li>
+        <li>The bigger structural questions — CRM, ERP, build versus buy — raised by Steven himself, and bigger than a single day</li>
+        <li>A quoting and pricing tool — the one I actively steered away from. A high-stakes estimator is the last thing you build, not the first.</li>
+      </ul>
+      <p class="body-text">Steven left with a method, not a deliverable. For a business growing at this pace, that is the outcome that matters — because the method is what keeps working after I've gone home.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Want a day like this?</h2>
+      <p>Take the free AI assessment — a few quick questions, and I'll come back to you personally.</p>
+      <a href="https://ai-ignite-assessment.vercel.app/" class="btn" target="_blank" rel="noopener">Take the Free AI Assessment →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="tag">AI Ignite — get your hands on the steering wheel.</p>
+    <p class="copy">&copy; 2026 AI Ignite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
