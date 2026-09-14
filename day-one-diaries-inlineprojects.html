@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day One Diaries — In-Line Projects | AI Ignite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #FF4D1C; --accent-dark: #e03a0a;
+      --dark: #163558; --dark-2: #1a3d65; --dark-3: #1f4472;
+      --white: #fff; --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Work Sans', sans-serif; background: var(--dark); color: var(--white); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 72px; display: flex; align-items: center; background: rgba(22,53,88,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .site-nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 860px; margin: 0 auto; }
+    .nav-logo { height: 44px; width: auto; display: block; }
+    .nav-back { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; }
+    .nav-back:hover { color: var(--white); }
+
+    .container { max-width: 860px; margin: 0 auto; width: 100%; }
+    section { padding: 72px 24px; }
+
+    /* HERO */
+    .hero { padding: 140px 24px 64px; border-bottom: 1px solid var(--border); }
+    .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 800; line-height: 1.08; margin-bottom: 14px; }
+    .hero-meta { font-size: 18px; color: rgba(255,255,255,0.55); font-weight: 300; margin-bottom: 8px; }
+    .hero-meta strong { color: var(--accent); font-weight: 600; }
+    .hero-lead { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 620px; margin-top: 22px; }
+
+    /* PHOTO SLOTS (placeholders until real images dropped in) */
+    .photo-slot { background: var(--dark-3); border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: rgba(255,255,255,0.45); padding: 28px; min-height: 300px; margin: 32px 0; }
+    .photo-slot .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .photo-slot .fname { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 10px; font-family: monospace; }
+    .photo-caption { font-size: 13px; color: rgba(255,255,255,0.4); text-align: center; margin-top: 2px; margin-bottom: 12px; font-style: italic; }
+    .case-photo { width: 100%; height: auto; border-radius: 10px; display: block; margin: 36px 0 6px; border: 1px solid var(--border); }
+    .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .photo-row { grid-template-columns: 1fr; } }
+
+    .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .section-title { font-size: clamp(26px, 4vw, 38px); font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .body-text { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.75; max-width: 680px; }
+    .body-text + .body-text { margin-top: 18px; }
+    .alt { background: var(--dark-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* TIMELINE */
+    .timeline { list-style: none; margin-top: 40px; }
+    .timeline li { display: flex; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .timeline li:last-child { border-bottom: none; }
+    .t-step { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,77,28,0.15); color: var(--accent); font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .t-body h4 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .t-body p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .t-time { color: var(--accent); font-weight: 600; }
+
+    .callout { margin: 36px 0; padding: 22px 26px; background: rgba(255,77,28,0.08); border: 1px solid rgba(255,77,28,0.25); border-radius: 10px; font-size: 18px; }
+    .callout strong { color: var(--accent); }
+
+    .stack { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .stack .chip { background: var(--dark-3); border: 1px solid var(--border); border-radius: 30px; padding: 8px 16px; font-size: 14px; color: rgba(255,255,255,0.75); }
+    .stack .chip b { color: var(--white); }
+
+    /* QUOTE */
+    .quote { background: var(--dark-2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 30px 34px; margin-top: 28px; }
+    .quote p { font-size: 19px; line-height: 1.65; color: var(--white); font-style: italic; }
+    .quote .who { margin-top: 16px; font-style: normal; font-size: 14px; color: var(--accent); font-weight: 600; }
+    .pre-quote { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 680px; }
+
+    /* PARKING LOT */
+    .park-list { list-style: none; margin: 28px 0; }
+    .park-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); font-size: 16px; color: rgba(255,255,255,0.78); }
+    .park-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 8px; flex-shrink: 0; }
+
+    /* CTA / FOOTER */
+    .cta { background: var(--dark-3); text-align: center; border-top: 1px solid var(--border); }
+    .cta h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+    .btn { display: inline-block; background: var(--accent); color: var(--white); font-size: 15px; font-weight: 600; padding: 16px 34px; border-radius: 4px; text-decoration: none; transition: background .18s; }
+    .btn:hover { background: var(--accent-dark); }
+    footer { padding: 30px 24px; text-align: center; border-top: 1px solid var(--border); }
+    footer .tag { font-family: 'Work Sans'; font-style: italic; color: rgba(255,255,255,0.5); font-size: 15px; margin-bottom: 8px; }
+    footer .copy { font-size: 13px; color: rgba(255,255,255,0.22); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="container">
+      <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <a href="/" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Day One Diaries</div>
+      <h1>In-Line Projects</h1>
+      <p class="hero-meta">Construction &amp; Project Delivery &nbsp;·&nbsp; <strong>Melbourne</strong></p>
+      <p class="hero-meta">One afternoon, in person &nbsp;·&nbsp; <strong>Daniel Hopper &amp; James Meaney, Directors</strong></p>
+      <p class="hero-lead">In-Line Projects builds and delivers construction projects across Melbourne — and like a lot of firms this size, the front end of the business runs through the two people least able to spare the time. Estimating in particular sits with James, one of the two directors. When the person doing the estimating is also one of the people trying to grow the business, every hour in the weeds is an hour not spent on the bigger picture.</p>
+    </div>
+  </section>
+
+  <!-- THE BRIEF -->
+  <section>
+    <div class="container">
+      <div class="section-label">The brief</div>
+      <h2 class="section-title">Free up the front end — without automating the riskiest thing first.</h2>
+      <p class="body-text">Free up the front end, estimating especially. The instinct with a brief like that is to charge straight at the biggest, gnarliest build.</p>
+      <p class="body-text">I pushed the other way — a high-stakes estimator is the last thing you automate, not the first; get it wrong and you won't always know.</p>
+      <p class="body-text">So we spent the afternoon getting both directors genuinely capable and building on their own work, with the estimating deep-build teed up for when they're ready to take it on.</p>
+    </div>
+  </section>
+
+  <!-- FIRST BASE -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">First: first base</div>
+      <h2 class="section-title">The machinery first, then the daily habit.</h2>
+      <p class="body-text">We started with the machinery — Claude and Projects, how instructions shape behaviour, what a project holds and remembers, and how a simple recap file becomes something the project draws on every time. Then the habit that makes it stick: one thing a day, on real work, until reaching for AI stops being a decision and becomes reflex.</p>
+      <p class="body-text">In-Line lives in Microsoft — SharePoint, Copilot, one source of truth, and a healthy preference for keeping it that way. So the answer was never "switch." It was: use Claude to think a problem through and work out what to do, then take that back into Copilot, where the business actually runs.</p>
+      <div class="quote">
+        <p>"Start with small bits — basic instructions that create a set of rules to guide what you're looking for."</p>
+        <div class="who">— James Meaney, Director</div>
+      </div>
+      <div class="quote" style="margin-top:20px;">
+        <p>"These micro habits — just doing one thing every day. I know it's there, but seeing the power of what it can do is the shift."</p>
+        <div class="who">— Daniel Hopper, Director</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE BUILD -->
+  <section>
+    <div class="container">
+      <div class="section-label">Then: hands on the wheel</div>
+      <h2 class="section-title">Building on their own real work.</h2>
+      <p class="body-text">This is where it got real. Working through genuine business problems, we built two things and solved a third.</p>
+
+      <ol class="timeline">
+        <li><span class="t-step">1</span><div class="t-body"><h4>A new position description</h4><p>For a role they're hiring — fed in the org chart and a couple of existing PDs, and it came back with a strong draft from limited input. It even pulled a salary range from what it could find in their own system that landed close to the mark.</p></div></li>
+        <li><span class="t-step">2</span><div class="t-body"><h4>A Monday-morning project snapshot</h4><p>An agent that filters key project information and delivers a summary at 6am each Monday, so the week starts with a clear read on where every project sits. Still a little rough, and honest about why: that's the prompting and the inputs, not the idea. Checked against Daniel's real site visit that morning, it held up.</p></div></li>
+      </ol>
+
+      <div class="quote">
+        <p>"From my site visit this morning, it's very, very accurate — which is pretty amazing."</p>
+        <div class="who">— Daniel Hopper, Director</div>
+      </div>
+
+      <div class="callout">And the pattern that tied it together: when they hit a wall inside Copilot or SharePoint — which is vast — we'd photograph the sticking point on the phone, hand it to Claude, and get back the exact steps to run in their Microsoft world. <strong>Claude to work out the how; Copilot to do the work.</strong> A repeatable method they can run without me in the room.</div>
+
+      <p class="body-text">James went after his own problem too — getting site photos off his phone without the usual clunky email chain — and left with three options, a recommendation, and a clear line on the time and inbox clutter it'll save.</p>
+    </div>
+  </section>
+
+  <!-- THE THING WORTH HOLDING ONTO -->
+  <section class="alt">
+    <div class="container">
+      <div class="section-label">The thing worth holding onto</div>
+      <h2 class="section-title">You've got to give it the time.</h2>
+      <p class="pre-quote">Daniel put the real lesson better than I could:</p>
+      <div class="quote">
+        <p>"It can pretty much do anything — but you've got to give it the time to dedicate to it, which ultimately saves you time in the long run."</p>
+        <div class="who">— Daniel Hopper, Director</div>
+      </div>
+      <p class="body-text" style="margin-top:28px;">That, and the reason the directors — not the tools — stay in charge: AI is convincing, and when it gets something wrong, it rarely tells you. Keeping your hands on the wheel isn't caution for its own sake. It's the whole point.</p>
+      <p class="body-text">Three and a half hours, start to finish, done by half four. Both directors left more confident, with working tools built on their own work and a method to keep going. The estimating deep-build — the thing the brief started with — is teed up as a scoped next step, taken on from a position of actually knowing how the tools work, rather than forced on day one.</p>
+
+      <div class="photo-slot">
+        <div class="tag">Photo to come</div>
+        <div>A shot of Mark with Daniel and/or James</div>
+        <div class="fname">no session photo captured yet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Want a day like this?</h2>
+      <p>Take the free AI assessment — a few quick questions, and I'll come back to you personally.</p>
+      <a href="https://ai-ignite-assessment.vercel.app/" class="btn" target="_blank" rel="noopener">Take the Free AI Assessment →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="tag">AI Ignite — get your hands on the steering wheel.</p>
+    <p class="copy">&copy; 2026 AI Ignite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
