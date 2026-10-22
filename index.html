@@ -343,7 +343,7 @@
       line-height: 1.22;
       letter-spacing: -0.035em;
       max-width: 1000px;
-      margin: 0 auto 72px;
+      margin: 0 auto;
       text-align: center;
     }
 
@@ -364,64 +364,6 @@
     .chip-dark { background: #2E2E2E; }
 
     .chip svg { width: 52%; height: 52%; }
-
-    .bento {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto 1fr;
-      gap: 20px;
-    }
-
-    .bento .tall { grid-row: span 2; }
-
-    .stat {
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-      gap: 32px;
-    }
-
-    .stat .num {
-      font-family: var(--head);
-      font-size: clamp(48px, 5vw, 72px);
-      font-weight: 400;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-
-    .stat h3 {
-      font-family: var(--head);
-      font-size: 24px;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .stat p { font-size: 15px; line-height: 1.65; }
-
-    .stat.small {
-      min-height: 0;
-      flex-direction: row;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .stat.small h3 { font-size: 22px; margin-bottom: 8px; }
-
-    .avatars { display: flex; flex-shrink: 0; }
-
-    .avatars img {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--card);
-      margin-left: -10px;
-    }
-
-    .avatars img:first-child { margin-left: 0; }
 
     .logos-label { text-align: center; font-size: 14.5px; margin: 64px 0 28px; color: #E4E4E4; }
 
@@ -949,9 +891,6 @@
       .hero { padding: 16px 16px 48px; }
       .hero-body { padding: 72px 8px 0; }
       .hero-photo { width: 100%; right: 0; opacity: 0.85; background-position: 70% 100%; background-size: auto 95%; }
-      .bento { grid-template-columns: 1fr; }
-      .bento .tall { grid-row: auto; }
-      .stat { min-height: 0; }
       .process-head, .who-grid, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
       .process-head p { justify-self: start; }
       .facts { grid-template-columns: 1fr; }
@@ -974,7 +913,6 @@
       .nav .btn { padding: 10px 14px; font-size: 14px; }
       .hero-actions .btn { width: 100%; }
       .video-card { width: 100%; }
-      .statement { margin-bottom: 48px; }
       .value-grid, .steps { grid-template-columns: 1fr; }
       .value-card { min-height: 0; }
       .value-card h3 { margin-top: 40px; }
@@ -1041,40 +979,6 @@
     <div class="container">
       <p class="statement">Built on 25+ years of building, scaling and selling <span class="chip"><svg viewBox="0 0 16 16" fill="none"><path d="M8 1.5v13M1.5 8h13M3.4 3.4l9.2 9.2M12.6 3.4l-9.2 9.2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span> businesses, <span class="fade">now helping owners get AI <span class="chip chip-dark"><svg viewBox="0 0 16 16" fill="none"><path d="M4 12V9M8 12V5M12 12V7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span> working in theirs.</span></p>
 
-      <div class="bento">
-        <div class="card stat tall">
-          <div class="num">25+</div>
-          <div>
-            <h3>Years Building Businesses</h3>
-            <p>Starting, running and scaling founder-led businesses from the inside — the real-world lens behind every Day One.</p>
-          </div>
-        </div>
-        <div class="card stat small">
-          <div>
-            <h3>Plain-Language AI</h3>
-            <p>No jargon, no slide decks. Hands on the wheel all day.</p>
-          </div>
-          <div class="avatars">
-            <img src="Me.jpg" alt="" style="object-position: center 25%;" />
-            <img src="Jesse-Mark.jpeg" alt="" style="object-position: 30% 35%;" />
-            <img src="Mark-Steve.jpeg" alt="" style="object-position: 40% 35%;" />
-          </div>
-        </div>
-        <div class="card stat tall">
-          <div class="num">Multiple<br />exits</div>
-          <div>
-            <h3>OrderMate &amp; HungryHungry</h3>
-            <p>OrderMate was acquired by ASX-listed MSL Solutions. HungryHungry merged with MOBI to serve 4,000+ venues across 15 countries.</p>
-          </div>
-        </div>
-        <div class="card stat">
-          <div class="num">2,400+</div>
-          <div>
-            <h3>Venues on OrderMate</h3>
-            <p>Processing $2B+ in transactions every year.</p>
-          </div>
-        </div>
-      </div>
 
       <p class="logos-label">Recent Day Ones</p>
       <div class="logos">
