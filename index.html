@@ -154,26 +154,30 @@
       border-radius: 0 0 24px 24px;
       overflow: hidden;
       background:
-        radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px) 0 0 / 30px 30px,
+        radial-gradient(55% 75% at 72% 40%, rgba(150,78,38,0.55) 0%, transparent 70%),
         radial-gradient(120% 90% at 85% 15%, #4A2615 0%, #2A1912 45%, #1A1310 100%);
       display: flex;
       flex-direction: column;
     }
 
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px) 0 0 / 30px 30px;
+      pointer-events: none;
+    }
+
     .hero-photo {
       position: absolute;
-      right: -2%;
-      top: 0;
+      right: 0;
+      top: 40px;
       bottom: 0;
-      width: 58%;
-      background: url('Me.jpg') center 20% / cover no-repeat;
-      filter: grayscale(1) contrast(1.15) brightness(0.9);
-      mix-blend-mode: luminosity;
-      opacity: 0.22;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%, #000 80%, transparent 100%), linear-gradient(180deg, #000 60%, transparent 100%);
-      -webkit-mask-composite: source-in;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 40%, #000 80%, transparent 100%), linear-gradient(180deg, #000 60%, transparent 100%);
-      mask-composite: intersect;
+      width: 62%;
+      /* Silhouette cut from Me.jpg: a dark, near-solid shape like LeadCraft's, so the headshot further down stays the clear one */
+      background: url('mark-silhouette.webp') 72% 100% / auto 100% no-repeat;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
       pointer-events: none;
     }
 
@@ -245,13 +249,13 @@
 
     .hero-note { font-size: 13.5px; color: rgba(255,255,255,0.55); margin-top: 16px; }
 
-    /* Video card. To use a real video, point the href at it and swap the arrow for a play icon. */
+    /* Day One card (sits where LeadCraft has its video card). Times are from Jesse's diary. */
     .video-card {
       position: absolute;
       right: 40px;
       bottom: 72px;
       z-index: 3;
-      width: 300px;
+      width: 340px;
       padding: 9px;
       border-radius: 12px;
       background: rgba(255,255,255,0.10);
@@ -265,22 +269,69 @@
 
     .video-card:hover { background: rgba(255,255,255,0.15); }
 
-    .video-thumb { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 2 / 1; }
+    .day-card { background: rgba(18,18,18,0.72); border-radius: 6px; padding: 16px 16px 12px; }
 
-    .video-thumb img { width: 100%; height: 100%; object-fit: cover; }
-
-    .video-badge {
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      width: 40px;
-      height: 40px;
-      border-radius: 4px;
-      background: var(--accent-btn);
+    .day-head {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #D4D4D4;
+      margin-bottom: 10px;
     }
+
+    .day-live { display: inline-flex; align-items: center; gap: 7px; color: var(--accent); }
+
+    .day-live i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(226,97,31,0.22); }
+
+    .day-steps { list-style: none; }
+
+    .day-steps li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 10px;
+      padding: 7px 0 7px 20px;
+      font-size: 14px;
+      line-height: 1.35;
+      color: #DADADA;
+    }
+
+    .day-steps li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6A6A6A;
+    }
+
+    .day-steps li::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 22px;
+      bottom: -9px;
+      width: 1px;
+      background: #3D3D3D;
+    }
+
+    .day-steps li:last-child::after { display: none; }
+
+    .day-steps time { font-family: var(--head); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    .day-steps li.done::before { background: var(--accent); box-shadow: 0 0 0 4px rgba(226,97,31,0.22); }
+
+    .day-steps li.done time { color: var(--accent); }
+
+    .day-steps li.done span { color: #fff; font-weight: 500; }
+
+    .video-card .read { color: var(--accent); white-space: nowrap; }
 
     .video-card p { font-size: 15px; line-height: 1.45; padding: 12px 2px 4px; }
 
@@ -897,7 +948,7 @@
       section { padding: 88px 24px; }
       .hero { padding: 16px 16px 48px; }
       .hero-body { padding: 72px 8px 0; }
-      .hero-photo { width: 100%; right: 0; opacity: 0.16; }
+      .hero-photo { width: 100%; right: 0; opacity: 0.85; background-position: 70% 100%; background-size: auto 95%; }
       .bento { grid-template-columns: 1fr; }
       .bento .tall { grid-row: auto; }
       .stat { min-height: 0; }
@@ -971,13 +1022,16 @@
         <p class="hero-note">Takes ~4 minutes — plus 2 free AI guides sent straight to your inbox.</p>
       </div>
       <a href="/day-one-diaries-jesse.html" class="video-card">
-        <div class="video-thumb">
-          <img src="Jesse-Whiteboard.jpeg" alt="The end-of-day whiteboard from Jesse's Day One" />
-          <span class="video-badge" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
+        <div class="day-card">
+          <div class="day-head"><span>Jesse's Day One</span><span class="day-live"><i></i>Live</span></div>
+          <ol class="day-steps">
+            <li><time>Morning</time><span>Claude &amp; Projects set up</span></li>
+            <li><time>2:00pm</time><span>Into Claude Code</span></li>
+            <li><time>3:03pm</time><span>First build kicked off</span></li>
+            <li class="done"><time>5:30pm</time><span>Lead form live</span></li>
+          </ol>
         </div>
-        <p>See how a real business owner went from standing start to a live tool in one day</p>
+        <p>See how a real business owner went from standing start to a live tool in one day <span class="read">→</span></p>
       </a>
     </div>
   </header>
