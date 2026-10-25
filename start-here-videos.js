@@ -5,6 +5,7 @@
   "videos" list and fill it in:
     youtube : the ID from the YouTube link (the part after "watch?v=")
     start   : optional, seconds into the video to start playing
+    preface : optional, a large lead-in line shown above the title
     title   : the video's title as you want it shown
     by      : who made it (leave as '' if you'd rather not say)
     tool    : "ChatGPT", "Claude", "Claude Code" or "Copilot"
@@ -66,6 +67,14 @@ window.START_HERE_STAGES = [
         by: 'Clearmud',
         tool: 'Claude Code',
         note: 'Breaks the complex parts down nicely, and shows in a real, practical way how Claude Code and Vercel work together.'
+      },
+      {
+        youtube: 'pdjbSjaGGAA',
+        preface: 'Are you ready to start building something?',
+        title: "So you've vibe coded something brilliant. Now what?",
+        by: 'Kyle Balmer',
+        tool: 'Claude Code',
+        note: "I really like how he explains things, quite simply. Do ignore anything that isn't Claude Code, GitHub, Vercel and Supabase. An excellent video overall, and it goes that bit further for those feeling adventurous."
       }
     ]
   }

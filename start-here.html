@@ -537,6 +537,16 @@
 
     .v-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 13px; color: var(--muted); }
 
+    .v-preface {
+      font-family: var(--head);
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
     .tag {
       font-size: 11.5px;
       font-weight: 500;
@@ -1000,6 +1010,7 @@
             '</button>' +
           '</div>' +
           '<div class="v-body">' +
+            (v.preface ? '<p class="v-preface">' + esc(v.preface) + '</p>' : '') +
             '<div class="v-meta"><span class="' + tagClass + '">' + esc(v.tool) + '</span>' + (v.by ? '<span>' + esc(v.by) + '</span>' : '') + '</div>' +
             '<h3>' + esc(v.title) + '</h3>' +
             '<div class="v-note"><span>What I like about it</span><p>' + esc(v.note) + '</p></div>' +
@@ -1047,10 +1058,18 @@
         bar.hidden = false;
         barInner.querySelectorAll('.sb-btn').forEach(b => b.addEventListener('click', () =>
           goTo(document.getElementById(b.dataset.target))));
-        const theirs = barInner.querySelector('.is-theirs');
-        if (theirs) barInner.scrollLeft = theirs.offsetLeft - 16;
+        centerTheirs();
         watchStages();
       }
+
+      // on narrow screens, scroll the stage bar so their stage sits fully in view
+      function centerTheirs() {
+        const theirs = barInner.querySelector('.is-theirs');
+        if (!theirs) return;
+        const left = theirs.getBoundingClientRect().left - barInner.getBoundingClientRect().left + barInner.scrollLeft;
+        barInner.scrollLeft = left - (barInner.clientWidth - theirs.offsetWidth) / 2;
+      }
+      window.addEventListener('load', centerTheirs);
 
       // mark the stage currently on screen in the bar
       let observer;
