@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Here — The AI Videos Worth Your Time | AI Ignite</title>
+  <meta name="description" content="The short videos Mark points people to in his one-on-ones. Answer three quick questions and go straight to the ones that fit where you're at." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #E2611F;        /* logo orange */
+      --accent-btn: #DA581A;
+      --accent-dark: #C14C12;
+      --bg: #1B1B1B;
+      --bg-deep: #0E0E0E;
+      --card: #252525;
+      --line: rgba(255,255,255,0.07);
+      --text: #F4F4F3;
+      --muted: #A1A1A1;
+      --radius: 20px;
+      --head: 'Inter Tight', 'Inter', sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --bar-h: 58px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1280px; margin: 0 auto; width: 100%; }
+
+    em.serif {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--accent-btn);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 24px;
+      border-radius: 4px;
+      border: 1px solid var(--accent-btn);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+    .btn-white { background: #fff; color: #111; border-color: #fff; }
+
+    .btn-white:hover { background: #EDEDED; border-color: #EDEDED; }
+
+    .btn-outline { background: transparent; border-color: rgba(255,255,255,0.85); }
+
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: #fff; }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .label::before { content: ''; width: 8px; height: 8px; background: var(--accent); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    /* ── HERO + NAV (as on the homepage) ── */
+    .hero {
+      position: relative;
+      padding: 24px 40px 88px;
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(55% 75% at 78% 30%, rgba(150,78,38,0.45) 0%, transparent 70%),
+        radial-gradient(120% 90% at 85% 15%, #4A2615 0%, #2A1912 45%, #1A1310 100%);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px) 0 0 / 30px 30px;
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 10;
+      background: #1C1C1C;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 10px 10px 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo { height: 32px; width: auto; }
+
+    .nav-links { display: flex; list-style: none; gap: 6px; }
+
+    .nav-links a {
+      display: block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: #E4E4E4;
+      text-decoration: none;
+      font-size: 15px;
+      transition: border-color 0.15s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { border-color: rgba(255,255,255,0.35); }
+
+    .hero-body {
+      position: relative;
+      z-index: 2;
+      padding-top: 88px;
+    }
+
+    .hero h1 {
+      font-family: var(--head);
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #E2E2E2;
+      max-width: 680px;
+      line-height: 1.65;
+    }
+
+    /* ── THE THREE QUESTIONS ── */
+    .quiz {
+      margin-top: 44px;
+      max-width: 780px;
+      background: rgba(18,18,18,0.6);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 8px 28px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .q { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 0; transition: opacity 0.3s ease; }
+
+    .q:last-of-type { border-bottom: none; }
+
+    .q-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+    }
+
+    .q-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12.5px;
+      color: #D8D8D8;
+      transition: all 0.25s ease;
+    }
+
+    .q-text {
+      flex: 1;
+      font-family: var(--head);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      transition: font-size 0.3s ease, color 0.3s ease;
+    }
+
+    .q-answer {
+      display: none;
+      flex-shrink: 0;
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .q-options { display: none; flex-wrap: wrap; gap: 10px; margin: 18px 0 4px 40px; }
+
+    .opt {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .opt:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+
+    .opt.is-picked { background: var(--accent-btn); border-color: var(--accent-btn); }
+
+    /* current: full size and bright */
+    .q.is-current .q-text { font-size: 26px; color: #fff; }
+    .q.is-current .q-num { border-color: var(--accent); color: #fff; background: var(--accent-btn); }
+    .q.is-current .q-options { display: flex; }
+
+    /* upcoming: faded and smaller */
+    .q.is-upcoming { opacity: 0.38; }
+    .q.is-upcoming .q-text { font-size: 17px; }
+
+    /* answered: shrunk, shows the answer with a tick, tap to change */
+    .q.is-answered { padding: 13px 0; }
+    .q.is-answered .q-head { cursor: pointer; }
+    .q.is-answered .q-text { font-size: 15px; color: var(--muted); font-family: 'Inter', sans-serif; letter-spacing: 0; }
+    .q.is-answered .q-num { border-color: rgba(226,97,31,0.6); color: var(--accent); }
+    .q.is-answered .q-answer { display: inline; }
+    .q.is-answered .q-head:hover .q-text { color: #fff; }
+
+    .quiz-result {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0 22px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--head);
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .quiz-result.show { display: flex; animation: rise 0.35s ease; }
+
+    .quiz-result .spark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .quiz-result strong { font-weight: 500; color: var(--accent); }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .quiz-skip {
+      display: inline-block;
+      margin-top: 18px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-family: inherit;
+      font-size: 14.5px;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(255,255,255,0.25);
+    }
+
+    .quiz-skip:hover { color: #fff; text-decoration-color: #fff; }
+
+    /* ── STICKY STAGE BAR ── */
+    .stage-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--bar-h);
+      background: rgba(20,20,20,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 40px;
+    }
+
+    .stage-bar[hidden] { display: none; }
+
+    .stage-bar .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .stage-bar .container::-webkit-scrollbar { display: none; }
+
+    .sb-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 14px 7px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: none;
+      color: #CFCFCF;
+      font-family: inherit;
+      font-size: 14px;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .sb-btn span {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #333;
+      color: #fff;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sb-btn:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+    .sb-btn.is-viewing { border-color: rgba(255,255,255,0.35); color: #fff; }
+
+    .sb-btn.is-theirs { background: rgba(226,97,31,0.16); border-color: rgba(226,97,31,0.6); color: #fff; }
+
+    .sb-btn.is-theirs span { background: var(--accent-btn); }
+
+    /* ── STAGES ── */
+    .stages[hidden] { display: none; }
+
+    .stage {
+      padding: 88px 40px;
+      scroll-margin-top: calc(var(--bar-h) - 1px);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      transition: opacity 0.3s ease;
+    }
+
+    .stage:first-child { border-top: none; }
+
+    .stage.is-past { opacity: 0.6; }
+
+    .stage.is-past:hover { opacity: 1; }
+
+    .stage.is-current {
+      background: radial-gradient(55% 70% at 0% 0%, rgba(226,97,31,0.12) 0%, transparent 70%), var(--bg);
+    }
+
+    .stage-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 28px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .stage-num {
+      grid-row: span 2;
+      font-family: var(--head);
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #5C5C5C;
+    }
+
+    .stage.is-current .stage-num { color: var(--accent); }
+
+    .stage-title {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+    }
+
+    .stage-title h2 {
+      font-family: var(--head);
+      font-size: clamp(30px, 3.6vw, 44px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge-here { background: var(--accent-btn); color: #fff; }
+
+    .badge-here::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+
+    .badge-next { border: 1px solid rgba(255,255,255,0.3); color: #DADADA; }
+
+    .badge-coming { border: 1px solid rgba(226,97,31,0.7); color: var(--accent); }
+
+    .stage-intro { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 720px; }
+
+    .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .v-card { overflow: hidden; display: flex; flex-direction: column; }
+
+    .v-frame { position: relative; aspect-ratio: 16 / 9; background: #111; }
+
+    .v-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    .v-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+
+    .v-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; color: var(--muted); }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: #333;
+      color: #EDEDED;
+    }
+
+    .tag-claude, .tag-claude-code { background: rgba(226,97,31,0.18); color: #F2A57A; }
+
+    .v-card h3 {
+      font-family: var(--head);
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .v-note {
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .v-note span {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .v-note p { font-size: 15px; color: #DCDCDC; line-height: 1.65; }
+
+    .v-fine { margin-top: 14px; font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+
+    .v-soon {
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 260px;
+      border-style: dashed;
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .v-soon .spark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(226,97,31,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .v-soon h3 { font-family: var(--head); font-size: 22px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px; }
+
+    .v-soon p { color: var(--muted); font-size: 15px; }
+
+    /* ── CLOSING (orange banner, as on the homepage) ── */
+    .cta-wrap { padding: 40px 12px 0; background: var(--bg); }
+
+    .cta {
+      border-radius: 20px;
+      padding: 104px 32px;
+      text-align: center;
+      background:
+        radial-gradient(rgba(255,255,255,0.22) 1px, transparent 1.4px) 0 0 / 30px 30px,
+        radial-gradient(90% 120% at 15% 110%, #FFB27A 0%, transparent 45%),
+        linear-gradient(160deg, #2A160D 0%, #A53A0C 38%, #E2611F 72%, #F08A4B 100%);
+    }
+
+    .cta h2 {
+      font-family: var(--head);
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
+
+    .cta p { font-size: 18px; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 auto 36px; }
+
+    .cta-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    /* ── FOOTER (as on the homepage) ── */
+    footer { background: var(--bg-deep); padding: 88px 40px 40px; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-top .nav-logo { height: 30px; margin-bottom: 18px; }
+
+    .footer-top p { color: var(--muted); font-size: 15px; max-width: 360px; }
+
+    .footer-top h4 { font-family: var(--head); font-size: 19px; font-weight: 500; margin-bottom: 18px; }
+
+    .footer-top ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-top a { color: var(--muted); text-decoration: none; font-size: 15px; }
+
+    .footer-top a:hover { color: var(--text); }
+
+    .wordmark {
+      font-family: var(--head);
+      font-weight: 500;
+      font-size: min(calc((100vw - 80px) / 3.3), 385px);
+      line-height: 0.82;
+      padding-bottom: 0.16em;
+      letter-spacing: -0.06em;
+      color: #F2F2F2;
+      white-space: nowrap;
+      margin: 56px 0 40px;
+      text-align: center;
+    }
+
+    .wordmark span { color: var(--accent); }
+
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      .hero { padding: 16px 16px 64px; }
+      .hero-body { padding: 64px 8px 0; }
+      .stage-bar { padding: 0 16px; }
+      .stage { padding: 72px 24px; }
+      .videos { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top > div:first-child { grid-column: 1 / -1; }
+      footer { padding: 72px 24px 32px; }
+      .wordmark { font-size: calc((100vw - 48px) / 3.3); }
+    }
+
+    @media (max-width: 560px) {
+      :root { --bar-h: 54px; }
+      .nav-logo { height: 26px; }
+      .nav .btn { padding: 10px 14px; font-size: 14px; }
+      .quiz { padding: 4px 18px; margin-top: 36px; }
+      .q.is-current .q-text { font-size: 21px; }
+      .q.is-upcoming .q-text { font-size: 15.5px; }
+      .q.is-answered .q-head { flex-wrap: wrap; row-gap: 2px; }
+      .q.is-answered .q-text { flex-basis: calc(100% - 40px); font-size: 14px; }
+      .q.is-answered .q-answer { margin-left: 40px; }
+      .q-options { margin-left: 0; gap: 8px; }
+      .opt { padding: 10px 16px; font-size: 14.5px; }
+      .quiz-result { font-size: 20px; }
+      .stage { padding: 60px 16px; }
+      .stage-head { grid-template-columns: 1fr; margin-bottom: 32px; }
+      .stage-num { grid-row: auto; font-size: 40px; }
+      .v-body { padding: 20px 18px 20px; }
+      .cta-wrap { padding: 24px 8px 0; }
+      .cta { padding: 76px 20px; }
+      .cta-actions .btn { width: 100%; }
+      footer { padding: 64px 16px 28px; }
+      .wordmark { font-size: calc((100vw - 32px) / 3.3); }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO + QUESTIONS ── -->
+  <header class="hero">
+    <nav class="nav container">
+      <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/start-here" class="active">Start Here</a></li>
+        <li><a href="/#how">How It Works</a></li>
+        <li><a href="/#diaries">Day One Diaries</a></li>
+        <li><a href="/#why">About</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+      <a href="/#contact" class="btn">Book A Call</a>
+    </nav>
+
+    <div class="hero-body container">
+      <div class="label">Start Here</div>
+      <h1>Skip the noise. These are the videos worth your <em class="serif">time.</em></h1>
+      <p class="hero-sub">These are the videos I point people to in my one-on-ones, the ones that actually made the penny drop. I hope you get as much out of them as they did, for your business and plenty beyond it. All short, and grounded in the basics. Answer three quick questions and I'll take you straight to the ones that fit where you're at.</p>
+
+      <div class="quiz" id="quiz">
+        <!-- the three questions are drawn here by the script below -->
+        <div class="quiz-result" id="quiz-result" aria-live="polite"></div>
+      </div>
+      <button type="button" class="quiz-skip" id="quiz-skip">Skip, show me everything</button>
+    </div>
+  </header>
+
+  <!-- ── STICKY STAGE BAR ── -->
+  <nav class="stage-bar" id="stage-bar" aria-label="Stages" hidden>
+    <div class="container" id="stage-bar-inner"></div>
+  </nav>
+
+  <!-- ── THE FOUR STAGES (drawn from start-here-videos.js) ── -->
+  <main class="stages" id="stages" hidden></main>
+
+  <!-- ── CLOSING ── -->
+  <div class="cta-wrap">
+    <div class="cta">
+      <h2>Want to keep <em class="serif">going?</em></h2>
+      <p>If something clicked, I'd love to hear about it. Take the free assessment to see where you're really at, or let's grab a coffee or jump on a call.</p>
+      <div class="cta-actions">
+        <a href="https://ai-ignite-assessment.vercel.app" class="btn btn-white">Take the free AI Assessment</a>
+        <a href="/#contact" class="btn btn-outline">Grab a coffee or a call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" />
+          <p>Helping business owners get started with AI in one day — and walk out with something real already built.</p>
+        </div>
+        <div>
+          <h4>How It Works</h4>
+          <ul>
+            <li><a href="/start-here">Start Here</a></li>
+            <li><a href="https://ai-ignite-assessment.vercel.app">Free AI Assessment</a></li>
+            <li><a href="/#how">Day One</a></li>
+            <li><a href="/#how">Day Two</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Day One Diaries</h4>
+          <ul>
+            <li><a href="/day-one-diaries-jesse.html">Found Kitchens &amp; Joinery</a></li>
+            <li><a href="/day-one-diaries-collectiveplay.html">Collective Play</a></li>
+            <li><a href="/day-one-diaries-emergingit.html">EmergingIT</a></li>
+            <li><a href="/day-one-diaries-inlineprojects.html">In-Line Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:mark@aiignite.com.au">mark@aiignite.com.au</a></li>
+            <li><a href="/#contact">Book a call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wordmark">AI Ignite<span>.</span></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI Ignite. All rights reserved.</p>
+        <p>aiignite.com.au</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="start-here-videos.js"></script>
+  <script>
+    (function () {
+      const STAGES = window.START_HERE_STAGES || [];
+      const STORE_KEY = 'aiIgniteStartHere';
+      const CHATGPT_NOTE = 'Shown in ChatGPT, but Claude, Copilot and Gemini all work the same way. Same idea, different buttons.';
+
+      const QUESTIONS = [
+        { key: 'freq', text: 'How often do you use AI right now?',
+          options: [['never', 'Never'], ['sometimes', 'Now and then'], ['daily', 'Most days']] },
+        { key: 'tool', text: 'Which tool do you use, or want to use?',
+          options: [['chatgpt', 'ChatGPT'], ['claude', 'Claude'], ['copilot', 'Copilot'], ['unsure', 'Not sure']] },
+        { key: 'ready', text: 'Do you feel close to building something of your own?',
+          options: [['no', 'Not yet'], ['maybe', 'Maybe'], ['yes', "Yes, I'm ready"]] }
+      ];
+
+      const quiz = document.getElementById('quiz');
+      const result = document.getElementById('quiz-result');
+      const stagesEl = document.getElementById('stages');
+      const bar = document.getElementById('stage-bar');
+      const barInner = document.getElementById('stage-bar-inner');
+
+      let answers = { freq: null, tool: null, ready: null };
+      let active = 0;          // index of the question being asked, or null when all are answered
+      let placed = null;       // index of their stage, or null in "show me everything"
+
+      function esc(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      }
+
+      function load() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
+          if (saved && typeof saved === 'object') {
+            QUESTIONS.forEach(q => {
+              if (q.options.some(o => o[0] === saved[q.key])) answers[q.key] = saved[q.key];
+            });
+          }
+        } catch (e) { /* no storage available: start fresh */ }
+      }
+
+      function save() {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(answers)); } catch (e) { /* ignore */ }
+      }
+
+      // smooth scroll to a stage, with an instant jump if smooth scrolling is off or doesn't move the page
+      function goTo(el) {
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const startY = window.scrollY;
+        el.scrollIntoView({ behavior: reduce ? 'instant' : 'smooth', block: 'start' });
+        setTimeout(() => {
+          if (Math.abs(window.scrollY - startY) < 2 && Math.abs(el.getBoundingClientRect().top) > 80) {
+            el.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+        }, 900);
+      }
+
+      function firstUnanswered() {
+        const i = QUESTIONS.findIndex(q => !answers[q.key]);
+        return i === -1 ? null : i;
+      }
+
+      function labelFor(q, value) {
+        const o = q.options.find(o => o[0] === value);
+        return o ? o[1] : '';
+      }
+
+      /* ── questions ── */
+      function renderQuiz() {
+        quiz.querySelectorAll('.q').forEach(el => el.remove());
+        QUESTIONS.forEach((q, i) => {
+          const state = i === active ? 'is-current' : (answers[q.key] ? 'is-answered' : 'is-upcoming');
+          const el = document.createElement('div');
+          el.className = 'q ' + state;
+          const head = state === 'is-answered' ? 'button' : 'div';
+          el.innerHTML =
+            '<' + head + ' class="q-head"' + (head === 'button' ? ' type="button" aria-label="Change your answer: ' + esc(q.text) + '"' : '') + '>' +
+              '<span class="q-num">' + (i + 1) + '</span>' +
+              '<span class="q-text">' + esc(q.text) + '</span>' +
+              '<span class="q-answer">' + esc(labelFor(q, answers[q.key])) + ' ✓</span>' +
+            '</' + head + '>' +
+            '<div class="q-options">' +
+              q.options.map(o => '<button type="button" class="opt' + (answers[q.key] === o[0] ? ' is-picked' : '') + '" data-value="' + o[0] + '">' + esc(o[1]) + '</button>').join('') +
+            '</div>';
+          if (state === 'is-answered') {
+            el.querySelector('.q-head').addEventListener('click', () => { active = i; result.classList.remove('show'); renderQuiz(); });
+          }
+          el.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => pick(q.key, b.dataset.value)));
+          quiz.insertBefore(el, result);
+        });
+      }
+
+      function pick(key, value) {
+        answers[key] = value;
+        save();
+        active = firstUnanswered();
+        renderQuiz();
+        if (active === null) place(true);
+      }
+
+      /* ── placement ── */
+      function stageFor(a) {
+        if (a.freq === 'never') return 0;
+        if (a.freq === 'sometimes') return 1;
+        return a.ready === 'yes' ? 3 : 2;      // most days
+      }
+
+      function preferredTool(a) {
+        return a.tool === 'chatgpt' ? 'ChatGPT' : 'Claude';   // Copilot and Not sure default to Claude
+      }
+
+      // "You're at Testing the Waters", but "You're at the Starting Line" rather than "at At the..."
+      function youreAt(name) {
+        const shown = name.startsWith('At ') ? name.charAt(3).toLowerCase() + name.slice(4) : name;
+        return 'You\'re at <strong>' + esc(shown) + '</strong>';
+      }
+
+      function place(animate) {
+        placed = stageFor(answers);
+        const comingUp = answers.ready === 'yes' && answers.freq !== 'daily';
+        renderStages(placed, preferredTool(answers), comingUp);
+        const target = document.getElementById(STAGES[placed].id);
+        if (animate) {
+          result.innerHTML = '<span class="spark"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5v13M1.5 8h13M3.4 3.4l9.2 9.2M12.6 3.4l-9.2 9.2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>' +
+            '<span>' + youreAt(STAGES[placed].name) + '</span>';
+          result.classList.add('show');
+          setTimeout(() => goTo(target), 1100);
+        } else {
+          // return visit: jump straight there, and again once fonts and images have settled the layout
+          const jump = () => target.scrollIntoView({ behavior: 'instant', block: 'start' });
+          jump();
+          if (document.readyState !== 'complete') window.addEventListener('load', jump, { once: true });
+        }
+      }
+
+      function showEverything() {
+        placed = null;
+        result.classList.remove('show');
+        renderStages(null, answers.tool ? preferredTool(answers) : 'Claude', false);
+        goTo(document.getElementById(STAGES[0].id));
+      }
+
+      /* ── stages and videos ── */
+      function videoCard(v) {
+        const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(v.youtube) + '?rel=0' + (v.start ? '&start=' + Number(v.start) : '');
+        const tagClass = 'tag tag-' + v.tool.toLowerCase().replace(/\s+/g, '-');
+        return '<article class="card v-card">' +
+          '<div class="v-frame"><iframe src="' + src + '" title="' + esc(v.title) + '" loading="lazy" ' +
+            'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+            'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>' +
+          '<div class="v-body">' +
+            '<div class="v-meta"><span class="' + tagClass + '">' + esc(v.tool) + '</span>' + (v.by ? '<span>' + esc(v.by) + '</span>' : '') + '</div>' +
+            '<h3>' + esc(v.title) + '</h3>' +
+            '<div class="v-note"><span>What I like about it</span><p>' + esc(v.note) + '</p></div>' +
+            (v.tool === 'ChatGPT' ? '<p class="v-fine">' + CHATGPT_NOTE + '</p>' : '') +
+          '</div>' +
+        '</article>';
+      }
+
+      function soonCard() {
+        return '<div class="card v-soon">' +
+          '<div class="spark"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 1.5v13M1.5 8h13M3.4 3.4l9.2 9.2M12.6 3.4l-9.2 9.2" stroke="#E2611F" stroke-width="1.6" stroke-linecap="round"/></svg></div>' +
+          '<h3>More videos coming soon</h3>' +
+          '<p>I\'m picking the ones worth your time for this stage. Check back soon.</p>' +
+        '</div>';
+      }
+
+      function renderStages(current, tool, comingUp) {
+        stagesEl.innerHTML = STAGES.map((s, i) => {
+          let cls = 'stage', badge = '';
+          if (current !== null) {
+            if (i === current) { cls += ' is-current'; badge = '<span class="badge badge-here">You are here</span>'; }
+            else if (i < current) cls += ' is-past';
+            else {
+              cls += ' is-future';
+              if (comingUp && i === STAGES.length - 1) badge = '<span class="badge badge-coming">Coming up</span>';
+              else if (i === current + 1) badge = '<span class="badge badge-next">What\'s next</span>';
+            }
+          }
+          // their tool first, otherwise keep the order in the data file
+          const vids = s.videos.slice().sort((a, b) => (b.tool.startsWith(tool) ? 1 : 0) - (a.tool.startsWith(tool) ? 1 : 0));
+          return '<section class="' + cls + '" id="' + s.id + '"><div class="container">' +
+            '<div class="stage-head">' +
+              '<div class="stage-num">0' + (i + 1) + '</div>' +
+              '<div class="stage-title"><h2>' + esc(s.name) + '</h2>' + badge + '</div>' +
+              '<p class="stage-intro">' + esc(s.intro) + '</p>' +
+            '</div>' +
+            '<div class="videos">' + (vids.length ? vids.map(videoCard).join('') : soonCard()) + '</div>' +
+          '</div></section>';
+        }).join('');
+        stagesEl.hidden = false;
+
+        barInner.innerHTML = STAGES.map((s, i) =>
+          '<button type="button" class="sb-btn' + (i === current ? ' is-theirs' : '') + '" data-target="' + s.id + '">' +
+            '<span>' + (i + 1) + '</span>' + esc(s.name) + '</button>').join('');
+        bar.hidden = false;
+        barInner.querySelectorAll('.sb-btn').forEach(b => b.addEventListener('click', () =>
+          goTo(document.getElementById(b.dataset.target))));
+        const theirs = barInner.querySelector('.is-theirs');
+        if (theirs) barInner.scrollLeft = theirs.offsetLeft - 16;
+        watchStages();
+      }
+
+      // mark the stage currently on screen in the bar
+      let observer;
+      function watchStages() {
+        if (observer) observer.disconnect();
+        if (!('IntersectionObserver' in window)) return;
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(en => {
+            if (!en.isIntersecting) return;
+            barInner.querySelectorAll('.sb-btn').forEach(b => b.classList.toggle('is-viewing', b.dataset.target === en.target.id));
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        stagesEl.querySelectorAll('.stage').forEach(s => observer.observe(s));
+      }
+
+      /* ── start ── */
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';   // we choose where a return visit lands
+      document.getElementById('quiz-skip').addEventListener('click', showEverything);
+      load();
+      active = firstUnanswered();
+      renderQuiz();
+      if (active === null) place(false);   // return visit: land straight on their level
+    })();
+  </script>
+</body>
+</html>
