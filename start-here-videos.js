@@ -54,7 +54,15 @@ window.START_HERE_STAGES = [
     id: 'getting-traction',
     name: 'Getting Traction',
     intro: "You're using it most days. Now let's make it work across your whole business, and your life outside it. Plenty of the people I work with end up using it just as much at home, and keeping pace with kids who are growing up with it.",
-    videos: []
+    videos: [
+      {
+        youtube: 'KBgZsV-0Fdo',
+        title: 'The 6 Claude features that get you ahead',
+        by: "Tristen O'Brien",
+        tool: 'Claude',
+        note: "This is an excellent run-through of Claude's features and products. My favourite part is how Skills are explained. Skills are used across all the big AI tools, and they're a really important thing to know about. Also covered: Claude Chat, Cowork, Dispatch (handing Claude a task from your phone while it works on your computer), Claude Code and plugins."
+      }
+    ]
   },
   {
     id: 'out-in-front',
