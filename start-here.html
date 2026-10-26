@@ -558,6 +558,8 @@
 
     .tag-claude, .tag-claude-code { background: rgba(226,97,31,0.13); color: #D99872; }
 
+    .tag-all-ai-tools { background: rgba(255,255,255,0.1); color: #E0E0E0; }
+
     .v-card h3 {
       font-family: var(--head);
       font-size: 17.5px;
@@ -1039,8 +1041,9 @@
               else if (i === current + 1) badge = '<span class="badge badge-next">What\'s next</span>';
             }
           }
-          // their tool first, otherwise keep the order in the data file
-          const vids = s.videos.slice().sort((a, b) => (b.tool.startsWith(tool) ? 1 : 0) - (a.tool.startsWith(tool) ? 1 : 0));
+          // videos for every tool first, then their tool, otherwise keep the order in the data file
+          const rank = v => v.tool === 'All AI tools' ? 0 : (v.tool.startsWith(tool) ? 1 : 2);
+          const vids = s.videos.slice().sort((a, b) => rank(a) - rank(b));
           return '<section class="' + cls + '" id="' + s.id + '"><div class="container">' +
             '<div class="stage-head">' +
               '<div class="stage-num">0' + (i + 1) + '</div>' +

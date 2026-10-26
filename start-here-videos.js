@@ -8,7 +8,9 @@
     preface : optional, a large lead-in line shown above the title
     title   : the video's title as you want it shown
     by      : who made it (leave as '' if you'd rather not say)
-    tool    : "ChatGPT", "Claude", "Claude Code" or "Copilot"
+    tool    : "ChatGPT", "Claude", "Claude Code", "Copilot",
+              or "All AI tools" for one that isn't about a single tool
+              (those always show first in their stage)
     note    : your "What I like about it" note
 
   A stage with an empty videos list shows a "More videos coming soon" card.
@@ -19,6 +21,13 @@ window.START_HERE_STAGES = [
     name: 'At the Starting Line',
     intro: "Mostly asking it questions, like a search engine? That's where most people start. These show you what it can really do, and you'll be ahead of most owners in no time.",
     videos: [
+      {
+        youtube: '4JNSP_Dfh4M',
+        title: 'What is an LLM? AI, explained clearly',
+        by: 'Jay Mayor',
+        tool: 'All AI tools',
+        note: "A must-watch for everyone, because it explains what AI actually is. Most of what we hear called \"AI\" is really an LLM, a large language model, and that's what sits underneath ChatGPT, Claude and the rest."
+      },
       {
         youtube: '33N-sveycoE',
         start: 192,
