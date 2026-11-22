@@ -8,7 +8,7 @@
     preface : optional, a large lead-in line shown above the title
     title   : the video's title as you want it shown
     by      : who made it (leave as '' if you'd rather not say)
-    tool    : "ChatGPT", "Claude", "Claude Code", "Copilot",
+    tool    : "ChatGPT", "Claude", "Claude Code", "Copilot", "Grok",
               or "All AI tools" for one that isn't about a single tool
               (those always show first in their stage)
     note    : your "What I like about it" note
@@ -56,6 +56,13 @@ window.START_HERE_STAGES = [
         by: 'Kevin Stratvert',
         tool: 'Claude',
         note: 'Covers the basics, then moves quickly into real, practical examples of using Claude day to day, with a taste of connecting it to your other tools.'
+      },
+      {
+        youtube: 'lGSQV0lIGus',
+        title: 'How to use Grok, step by step',
+        by: 'Kevin Stratvert',
+        tool: 'Grok',
+        note: "A clear, practical tour of Grok: setting it up, researching and writing, making images and video, and connecting it to your other apps. It also shows where Grok stands out, checking what people are saying on X right now."
       }
     ]
   },
