@@ -77,6 +77,13 @@ window.START_HERE_STAGES = [
         by: "Tristen O'Brien",
         tool: 'Claude',
         note: "This is an excellent run-through of Claude's features and products. My favourite part is how Skills are explained. Skills are used across all the big AI tools, and they're a really important thing to know about. Also covered: Claude Chat, Cowork, Dispatch (handing Claude a task from your phone while it works on your computer), Claude Code and plugins."
+      },
+      {
+        youtube: 'TAirq97G7ow',
+        title: 'Why Grok stands out, and how to use it well',
+        by: 'Parker Prompts',
+        tool: 'Grok',
+        note: "Short, sharp and to the point. He's a Grok evangelist and gives you all the reasons Grok stands out over Claude, ChatGPT and the others. Certainly worth a watch if you've been wondering whether to try Grok after all the hype."
       }
     ]
   },
