@@ -384,8 +384,8 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="g-website">Website <span class="opt">(optional)</span></label>
-              <input type="text" id="g-website" name="website" inputmode="url" placeholder="yourbusiness.com.au" />
+              <label for="g-website">Website</label>
+              <input type="text" id="g-website" name="website" inputmode="url" placeholder="yourbusiness.com.au" required />
             </div>
             <div class="form-group">
               <label for="g-role">I am…</label>
@@ -423,17 +423,17 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="g-ai">Where is AI in your business today? <span class="opt">(optional)</span></label>
-            <select id="g-ai" name="ai_today">
-              <option value="" selected>Choose one</option>
+            <label for="g-ai">Where is AI in your business today?</label>
+            <select id="g-ai" name="ai_today" required>
+              <option value="" disabled selected>Choose one</option>
               <option>Not started</option>
               <option>Dabbling</option>
               <option>Using it most days</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="g-notes">Anything else I should know? <span class="opt">(optional)</span></label>
-            <textarea id="g-notes" name="notes"></textarea>
+            <label for="g-notes">Anything else I should know?</label>
+            <textarea id="g-notes" name="notes" required></textarea>
           </div>
           <!-- spam trap: real people never see or fill this -->
           <div class="hp" aria-hidden="true">
