@@ -597,7 +597,6 @@
       flex-shrink: 0;
     }
 
-    .t-thumb { width: 116px; height: 116px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
 
     .t-quote {
       margin-top: auto;
@@ -627,6 +626,22 @@
     }
 
     .t-card.photo > *:not(img) { position: relative; z-index: 1; }
+
+    /* photo across the top, quote below it on the plain card (for close-up photos) */
+    .t-card.photo-top { border: none; }
+
+    .t-card.photo-top > img {
+      display: block;
+      width: calc(100% + 48px);
+      max-width: none;
+      height: 206px;
+      margin: -24px -24px 18px;
+      object-fit: cover;
+    }
+
+    .t-card.photo-top .t-quote { margin-top: 14px; }
+
+    .t-card.photo-top .t-who { margin-top: auto; padding-top: 22px; }
 
     /* ── CASE STUDY ── */
     .case { background: var(--bg); padding-top: 120px; }
@@ -917,7 +932,7 @@
       .value-card { min-height: 0; }
       .value-card h3 { margin-top: 40px; }
       .t-card { flex-basis: 86vw; min-height: 440px; }
-      .t-thumb { width: 88px; height: 88px; }
+      .t-card.photo-top > img { height: 190px; }
       .t-track { margin-right: -16px; padding-right: 16px; }
       .case-stats strong { font-size: 32px; }
       .logos { padding: 0; gap: 18px 28px; justify-content: center; }
@@ -1098,11 +1113,9 @@
         </div>
       </div>
       <div class="t-track" id="t-track">
-        <a href="/day-one-diaries-jesse.html" class="card t-card">
-          <div class="t-top">
-            <span class="t-company">Found Kitchens &amp; Joinery</span>
-            <img src="Jesse-Whiteboard.jpeg" alt="The end-of-day whiteboard from Jesse's Day One" class="t-thumb" />
-          </div>
+        <a href="/day-one-diaries-jesse.html" class="card t-card photo-top">
+          <img src="Jesse-Mark-selfie.jpg" alt="Mark with Jesse Cummins of Found Kitchens &amp; Joinery" style="object-position: 45% 15%;" />
+          <span class="t-company">Found Kitchens &amp; Joinery</span>
           <p class="t-quote">"I was absolutely stoked to have my first functional and valuable tool to go away and implement ASAP — I learnt SOOOO much."</p>
           <div class="t-who">Jesse Cummins<span>Found Kitchens &amp; Joinery</span></div>
           <div class="t-read">Read the Day One Diary →</div>
@@ -1128,14 +1141,6 @@
           </div>
           <p class="t-quote">"It can pretty much do anything — but you've got to give it the time to dedicate to it, which ultimately saves you time in the long run."</p>
           <div class="t-who">Daniel Hopper<span>In-Line Projects, Construction &amp; Project Delivery</span></div>
-          <div class="t-read">Read the Day One Diary →</div>
-        </a>
-        <a href="/day-one-diaries-jesse.html" class="card t-card">
-          <div class="t-top">
-            <span class="t-company">Found Kitchens &amp; Joinery</span>
-          </div>
-          <p class="t-quote">"Yes, definitely! This is perfect for anyone like me who is so busy."</p>
-          <div class="t-who">Jesse Cummins<span>On whether he'd recommend AI Ignite</span></div>
           <div class="t-read">Read the Day One Diary →</div>
         </a>
       </div>
