@@ -82,7 +82,6 @@ window.START_HERE_STAGES = [
       },
       {
         youtube: 'TAirq97G7ow',
-        last: true,
         title: 'Why Grok stands out, and how to use it well',
         by: 'Parker Prompts',
         tool: 'Grok',
@@ -112,6 +111,7 @@ window.START_HERE_STAGES = [
       },
       {
         youtube: 'q1IwR88mhaA',
+        last: true,
         title: 'Build your own bots with Grok Bot',
         by: 'Charlie Chang',
         tool: 'Grok',
