@@ -103,3 +103,18 @@ window.START_HERE_STAGES = [
     ]
   }
 ];
+
+/*
+  The one "which AI is best?" video, shown on its own in a small card
+  under the three questions. tools: every AI model it covers, each shown
+  as a tag with its logo.
+*/
+window.START_HERE_FEATURE = {
+  label: 'Wondering which AI is best?',
+  youtube: 'XjkUxkAYC0g',
+  title: 'Every AI model explained in 6 minutes',
+  by: 'Whiteboard List Explained',
+  length: '6 min',
+  note: "Explains each of the AI models in simple speak. Worth six minutes for anyone asking which one is the best.",
+  tools: ['ChatGPT', 'Claude', 'Gemini', 'Grok', 'DeepSeek', 'Perplexity', 'OpenClaw', 'Llama']
+};
