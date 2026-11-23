@@ -99,6 +99,13 @@ window.START_HERE_STAGES = [
         by: 'Kyle Balmer',
         tool: 'Claude Code',
         note: "I really like how he explains things, quite simply. Do ignore anything that isn't Claude Code, GitHub, Vercel and Supabase. An excellent video overall, and it goes that bit further for those feeling adventurous."
+      },
+      {
+        youtube: 'q1IwR88mhaA',
+        title: 'Build your own bots with Grok Bot',
+        by: 'Charlie Chang',
+        tool: 'Grok',
+        note: "It dives straight into building bots. Creating your own executive assistant is one of the most popular uses amongst Grok users, and he shows you how to do it. The pace he runs through the content is excellent too."
       }
     ]
   }
