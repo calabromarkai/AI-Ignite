@@ -12,6 +12,8 @@
               or "All AI tools" for one that isn't about a single tool
               (those always show first in their stage)
     note    : your "What I like about it" note
+    last    : optional, true keeps it at the end of its row
+              (otherwise each visitor's chosen tool shows first)
 
   A stage with an empty videos list shows a "More videos coming soon" card.
 */
@@ -80,6 +82,7 @@ window.START_HERE_STAGES = [
       },
       {
         youtube: 'TAirq97G7ow',
+        last: true,
         title: 'Why Grok stands out, and how to use it well',
         by: 'Parker Prompts',
         tool: 'Grok',
