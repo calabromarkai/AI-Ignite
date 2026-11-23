@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth Partner: Lead Generation, Sales and Marketing for Founders | AI Ignite</title>
+  <meta name="description" content="You built the business. Let us build the sales engine. Mark Calabro steps into your business alongside you to grow revenue through lead generation, sales and marketing, with or without the AI layer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #E2611F;
+      --accent-btn: #DA581A;
+      --accent-dark: #C14C12;
+      --bg: #1B1B1B;
+      --bg-deep: #0E0E0E;
+      --card: #252525;
+      --line: rgba(255,255,255,0.07);
+      --text: #F4F4F3;
+      --muted: #A1A1A1;
+      --radius: 20px;
+      --head: 'Inter Tight', 'Inter', sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1280px; margin: 0 auto; width: 100%; }
+
+    em.serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent-btn); color: #fff;
+      font-family: inherit; font-size: 15px; font-weight: 500;
+      padding: 13px 24px; border-radius: 4px; border: 1px solid var(--accent-btn);
+      text-decoration: none; cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn-lg { font-size: 16px; padding: 15px 28px; }
+
+    .label {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 12.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .label::before { content: ''; width: 8px; height: 8px; background: var(--accent); }
+
+    .title {
+      font-family: var(--head);
+      font-size: clamp(30px, 3.4vw, 44px);
+      font-weight: 500; line-height: 1.08; letter-spacing: -0.035em;
+    }
+
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+
+    /* ── HERO + NAV (as on the homepage) ── */
+    .hero {
+      position: relative;
+      padding: 24px 40px 96px;
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+      background:
+        radial-gradient(55% 75% at 78% 30%, rgba(150,78,38,0.45) 0%, transparent 70%),
+        radial-gradient(120% 90% at 85% 15%, #4A2615 0%, #2A1912 45%, #1A1310 100%);
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px) 0 0 / 30px 30px;
+      pointer-events: none;
+    }
+
+    .nav {
+      position: relative; z-index: 10;
+      background: #1C1C1C; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 10px 10px 10px 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav-logo { height: 32px; width: auto; }
+    .nav-links { display: flex; list-style: none; gap: 6px; }
+    .nav-links a {
+      display: block; padding: 7px 14px; border-radius: 999px; border: 1px solid transparent;
+      color: #E4E4E4; text-decoration: none; font-size: 15px; transition: border-color 0.15s;
+    }
+    .nav-links a:hover { border-color: rgba(255,255,255,0.35); }
+
+    .hero-body { position: relative; z-index: 2; padding-top: 96px; }
+
+    .hero h1 {
+      font-family: var(--head);
+      font-size: clamp(40px, 5.2vw, 72px);
+      font-weight: 500; line-height: 1.03; letter-spacing: -0.045em;
+      max-width: 900px; margin-bottom: 24px;
+    }
+    .hero-sub { font-size: 18px; color: #C9C9C9; max-width: 620px; line-height: 1.65; margin-bottom: 36px; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 104px 40px; }
+    .section-deep { background: var(--bg-deep); }
+    .section-head { max-width: 760px; margin-bottom: 48px; }
+    .section-head p { color: var(--muted); font-size: 17px; margin-top: 16px; }
+
+    /* Sound familiar? */
+    .pains { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .pain { padding: 28px 30px; display: flex; gap: 18px; align-items: flex-start; }
+    .pain-mark {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid rgba(226,97,31,0.6); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-size: 15px; margin-top: 1px;
+    }
+    .pain p { font-size: 17px; color: #E2E2E2; line-height: 1.55; }
+
+    /* How I work */
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .step { padding: 30px 28px 32px; }
+    .step-num {
+      font-family: var(--head); font-size: 15px; font-weight: 500; color: var(--accent);
+      margin-bottom: 40px; letter-spacing: 0.02em;
+    }
+    .step h3 { font-family: var(--head); font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; }
+    .step p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    /* Why me */
+    .why { display: grid; grid-template-columns: 380px 1fr; gap: 64px; align-items: center; }
+    .why-photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1 / 1; }
+    .why-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .why-copy p { font-size: 18px; color: #D6D6D6; line-height: 1.65; max-width: 640px; margin-top: 20px; }
+    .why-copy p + p { margin-top: 16px; }
+    .why-copy strong { color: var(--text); font-weight: 600; }
+
+    /* With or without AI + advisors */
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .duo .card { padding: 44px 40px; }
+    .duo h2 { font-family: var(--head); font-size: clamp(26px, 2.6vw, 34px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .duo p { color: var(--muted); font-size: 16.5px; line-height: 1.65; }
+    .duo .card-accent { border-color: rgba(226,97,31,0.35); background: linear-gradient(160deg, #2A1A12 0%, #252525 60%); }
+    .duo a.text-link { display: inline-block; margin-top: 20px; color: var(--text); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    /* ── FORM ── */
+    .coffee { background: var(--bg-deep); padding: 110px 40px 96px; }
+    .coffee-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: start; }
+    .coffee-grid .intro { color: var(--muted); font-size: 17px; margin-top: 18px; max-width: 420px; }
+    .coffee-grid .intro a { color: var(--text); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13.5px; color: var(--muted); margin-bottom: 6px; }
+    .form-group label .opt { color: #6F6F6F; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; background: #161616; border: 1px solid #333; border-radius: 4px;
+      color: var(--text); font-family: inherit; font-size: 15px; padding: 13px 14px;
+      outline: none; transition: border-color 0.15s;
+    }
+    .form-group select {
+      appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A1A1A1' stroke-width='1.6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 15px center;
+    }
+    .form-group select:invalid { color: #7A7A7A; }
+    .form-group option { color: var(--text); background: #161616; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form-submit { width: 100%; margin-top: 6px; }
+    .form-submit[disabled] { opacity: 0.6; cursor: wait; }
+    .form-error { display: none; margin-top: 12px; font-size: 14.5px; color: #F08A4B; }
+    .form-success { display: none; padding: 32px; }
+    .form-success p { font-size: 19px; color: var(--text); line-height: 1.55; }
+    .form-success .sign { margin-top: 10px; font-size: 15px; color: #C9814F; font-weight: 500; }
+
+    /* ── FOOTER (as on the homepage) ── */
+    footer { background: var(--bg-deep); padding: 88px 40px 40px; border-top: 1px solid var(--line); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-top .nav-logo { height: 30px; margin-bottom: 18px; }
+    .footer-top p { color: var(--muted); font-size: 15px; max-width: 360px; }
+    .footer-top h4 { font-family: var(--head); font-size: 19px; font-weight: 500; margin-bottom: 18px; }
+    .footer-top ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-top a { color: var(--muted); text-decoration: none; font-size: 15px; }
+    .footer-top a:hover { color: var(--text); }
+    .wordmark {
+      font-family: var(--head); font-weight: 500;
+      font-size: min(calc((100vw - 80px) / 3.3), 385px);
+      line-height: 0.82; padding-bottom: 0.16em; letter-spacing: -0.06em;
+      color: #F2F2F2; white-space: nowrap; margin: 56px 0 40px; text-align: center;
+    }
+    .wordmark span { color: var(--accent); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .why { grid-template-columns: 300px 1fr; gap: 44px; }
+    }
+
+    @media (max-width: 860px) {
+      .hero { padding: 16px 16px 64px; }
+      .hero-body { padding: 64px 8px 0; }
+      .section { padding: 80px 24px; }
+      .pains, .duo, .coffee-grid { grid-template-columns: 1fr; }
+      .coffee-grid { gap: 32px; }
+      .why { grid-template-columns: 1fr; gap: 32px; }
+      .why-photo { max-width: 320px; }
+      .coffee { padding: 80px 24px 64px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-top > div:first-child { grid-column: 1 / -1; }
+      footer { padding: 72px 24px 32px; }
+      .wordmark { font-size: calc((100vw - 48px) / 3.3); }
+    }
+
+    @media (max-width: 560px) {
+      .nav-logo { height: 26px; }
+      .nav .btn { padding: 10px 14px; font-size: 14px; }
+      .hero-sub { font-size: 16.5px; }
+      .hero .btn-lg { width: 100%; }
+      .section { padding: 64px 16px; }
+      .section-head { margin-bottom: 32px; }
+      .steps { grid-template-columns: 1fr; }
+      .step-num { margin-bottom: 18px; }
+      .pain { padding: 22px 20px; }
+      .pain p { font-size: 16px; }
+      .duo .card { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .coffee { padding: 64px 16px 48px; }
+      footer { padding: 64px 16px 28px; }
+      .wordmark { font-size: calc((100vw - 32px) / 3.3); }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <nav class="nav container">
+      <a href="/"><img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" /></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/start-here">Start Here</a></li>
+        <li><a href="#how">How I Work</a></li>
+        <li><a href="#why">About</a></li>
+        <li><a href="#advisors">For Advisors</a></li>
+      </ul>
+      <a href="#coffee" class="btn">Grab a virtual coffee</a>
+    </nav>
+
+    <div class="hero-body container">
+      <div class="label">Growth Partner</div>
+      <h1>You built the business. Let us build the sales <em class="serif">engine.</em></h1>
+      <p class="hero-sub">I step into your business alongside you to grow revenue: lead generation, sales and marketing. With or without the AI layer.</p>
+      <a href="#coffee" class="btn btn-lg">Grab a virtual coffee &rarr;</a>
+    </div>
+  </header>
+
+  <!-- ── SOUND FAMILIAR? ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="label">Sound familiar?</div>
+        <h2 class="title">Growth has stalled, and selling keeps sliding down the <em class="serif">list.</em></h2>
+      </div>
+      <div class="pains">
+        <div class="card pain"><span class="pain-mark">&rarr;</span><p>Referrals and word of mouth got you here, but growth has flattened.</p></div>
+        <div class="card pain"><span class="pain-mark">&rarr;</span><p>Selling is not your thing, or not what you enjoy, so it keeps sliding down the list.</p></div>
+        <div class="card pain"><span class="pain-mark">&rarr;</span><p>You are spending on marketing without knowing what is actually working.</p></div>
+        <div class="card pain"><span class="pain-mark">&rarr;</span><p>You know who you <em>like</em> working with, but it has never been written down or targeted.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW I WORK ── -->
+  <section class="section section-deep" id="how">
+    <div class="container">
+      <div class="section-head">
+        <div class="label">How I work</div>
+        <h2 class="title">Four steps, and I stay in it with <em class="serif">you.</em></h2>
+      </div>
+      <div class="steps">
+        <div class="card step">
+          <div class="step-num">01</div>
+          <h3>Get clear on your ideal customer</h3>
+          <p>A short deep-dive into your business, your best customers and your market. Who you should be chasing, and who you should not.</p>
+        </div>
+        <div class="card step">
+          <div class="step-num">02</div>
+          <h3>A one-page growth plan</h3>
+          <p>Where your customers are, the two or three channels that matter, and the one number we are moving. One page, not a slide deck.</p>
+        </div>
+        <div class="card step">
+          <div class="step-num">03</div>
+          <h3>Build the engine</h3>
+          <p>Lead generation, a simple sales process, marketing that earns its keep. AI where it saves time or sharpens the work, and only there.</p>
+        </div>
+        <div class="card step">
+          <div class="step-num">04</div>
+          <h3>Stay in it with you</h3>
+          <p>A weekly rhythm of focus, accountability and adjustment. You always know the next three things to do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY ME ── -->
+  <section class="section" id="why">
+    <div class="container why">
+      <div class="why-photo"><img src="Me.jpg" alt="Mark Calabro" loading="lazy" /></div>
+      <div class="why-copy">
+        <div class="label">Why me</div>
+        <h2 class="title">An operator, not an <em class="serif">agency.</em></h2>
+        <p>I am Mark Calabro. I co-founded <strong>OrderMate</strong>, acquired by ASX-listed MSL Solutions, and <strong>HungryHungry</strong>, which grew to thousands of venues across multiple countries. Both were built on strong sales engines.</p>
+        <p>Twenty-plus years of building founder-led businesses, now paired with practical AI. I sit on your side of the table.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WITH OR WITHOUT AI + FOR ADVISORS ── -->
+  <section class="section section-deep" id="advisors">
+    <div class="container duo">
+      <div class="card">
+        <div class="label">With or without AI</div>
+        <h2>AI is a tool, not the starting <em class="serif">point.</em></h2>
+        <p>Some businesses need a sharper sales process first. Others are ready to put AI to work across lead gen and follow-up. We start where you are.</p>
+      </div>
+      <div class="card card-accent">
+        <div class="label">For advisors and coaches</div>
+        <h2>You stay the trusted <em class="serif">advisor.</em></h2>
+        <p>If you work with business owners who need to grow revenue, I can step in alongside you and your client. You stay the trusted advisor; I help build and run the engine.</p>
+        <a href="#coffee" class="text-link">Introduce a client &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FORM ── -->
+  <section class="coffee" id="coffee">
+    <div class="container coffee-grid">
+      <div>
+        <div class="label">Grab a virtual coffee</div>
+        <h2 class="title">Let's talk about your <em class="serif">growth.</em></h2>
+        <p class="intro">Tell me a little about your business and I will be in touch to set up a 20-minute virtual coffee. Or email <a href="mailto:mark@aiignite.com.au">mark@aiignite.com.au</a>.</p>
+      </div>
+      <div>
+        <div class="card form-success" id="form-success" role="status">
+          <p>Thanks — I will be in touch within two business days to find a time.</p>
+          <div class="sign">— Mark</div>
+        </div>
+        <form id="growth-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="g-name">Name</label>
+              <input type="text" id="g-name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="g-email">Email</label>
+              <input type="email" id="g-email" name="email" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="g-phone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="g-phone" name="phone" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="g-business">Business name</label>
+              <input type="text" id="g-business" name="business" autocomplete="organization" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="g-website">Website <span class="opt">(optional)</span></label>
+              <input type="text" id="g-website" name="website" inputmode="url" placeholder="yourbusiness.com.au" />
+            </div>
+            <div class="form-group">
+              <label for="g-role">I am…</label>
+              <select id="g-role" name="role" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>A business owner</option>
+                <option>An advisor or coach with a client in mind</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="g-turnover">Annual turnover</label>
+              <select id="g-turnover" name="turnover" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Under $500k</option>
+                <option>$500k–$2m</option>
+                <option>$2m–$5m</option>
+                <option>$5m–$10m</option>
+                <option>$10m+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="g-challenge">Biggest growth challenge right now</label>
+              <select id="g-challenge" name="challenge" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Not enough leads</option>
+                <option>Leads not converting</option>
+                <option>No real sales process</option>
+                <option>I do not enjoy selling</option>
+                <option>Marketing is not working</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="g-ai">Where is AI in your business today? <span class="opt">(optional)</span></label>
+            <select id="g-ai" name="ai_today">
+              <option value="" selected>Choose one</option>
+              <option>Not started</option>
+              <option>Dabbling</option>
+              <option>Using it most days</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="g-notes">Anything else I should know? <span class="opt">(optional)</span></label>
+            <textarea id="g-notes" name="notes"></textarea>
+          </div>
+          <!-- spam trap: real people never see or fill this -->
+          <div class="hp" aria-hidden="true">
+            <label for="g-company2">Leave this empty</label>
+            <input type="text" id="g-company2" name="company2" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="btn btn-lg form-submit" id="g-submit">Book my virtual coffee</button>
+          <p class="form-error" id="form-error" role="alert"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <img src="AI-Ignite-EmberBurst-lockup-transparent.png" alt="AI Ignite" class="nav-logo" />
+          <p>Helping business owners get started with AI in one day — and walk out with something real already built.</p>
+        </div>
+        <div>
+          <h4>How It Works</h4>
+          <ul>
+            <li><a href="/start-here">Start Here</a></li>
+            <li><a href="https://ai-ignite-assessment.vercel.app">Free AI Assessment</a></li>
+            <li><a href="/#how">Day One</a></li>
+            <li><a href="/#how">Day Two</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Day One Diaries</h4>
+          <ul>
+            <li><a href="/day-one-diaries-jesse.html">Found Kitchens &amp; Joinery</a></li>
+            <li><a href="/day-one-diaries-collectiveplay.html">Collective Play</a></li>
+            <li><a href="/day-one-diaries-emergingit.html">EmergingIT</a></li>
+            <li><a href="/day-one-diaries-inlineprojects.html">In-Line Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:mark@aiignite.com.au">mark@aiignite.com.au</a></li>
+            <li><a href="#coffee">Grab a virtual coffee</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="wordmark">AI Ignite<span>.</span></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI Ignite. All rights reserved.</p>
+        <p>aiignite.com.au</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Leads go to the assessment app on Vercel, which emails Mark and logs to the sheet (tagged growth-partner)
+      const ENDPOINT = /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
+        ? 'http://localhost:3000/api/growth'
+        : 'https://ai-ignite-assessment.vercel.app/api/growth';
+
+      const form = document.getElementById('growth-form');
+      const btn = document.getElementById('g-submit');
+      const errorEl = document.getElementById('form-error');
+      const success = document.getElementById('form-success');
+
+      function showError(msg) { errorEl.textContent = msg; errorEl.style.display = 'block'; }
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        errorEl.style.display = 'none';
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.source = 'growth-partner';
+        data.page = location.href;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+          const res = await fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!res.ok) throw new Error('Bad response');
+          form.style.display = 'none';
+          success.style.display = 'block';
+          success.scrollIntoView({ block: 'center' });
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Book my virtual coffee';
+          showError('Sorry, that did not send. Please try again, or email mark@aiignite.com.au.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
